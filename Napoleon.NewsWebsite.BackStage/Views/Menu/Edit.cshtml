@@ -1,0 +1,55 @@
+﻿@using System.Data
+@{
+    ViewBag.Title = "新闻菜单-编辑";
+    Layout = "~/Views/Shared/_Right.cshtml";
+}
+<div style="padding: 15px;">
+    <form id="editMenuForm" method="post" data-options="novalidate:true">
+        @{
+            DataRow row = ((DataTable) ViewData["menu"]).Rows[0];
+        <table class="pageTable">
+            <tr>
+                <td class="tableName">菜单名称:</td>
+                <td class="tableValue">
+                    <input name="hiddenId" type="hidden" value='@row["Id"]' />
+                    <input name="menuName" class="easyui-textbox" value='@row["MenuName"]' data-options="required:true" />
+                </td>
+                <td class="tableName">是否父节点:</td>
+                <td class="tableValue">
+                    <input id="isParent" name="isParent" value='@row["IsParent"]' data-options="required:true" />
+                </td>
+            </tr>
+            <tr>
+                <td class="tableName">父菜单</td>
+                <td class="tableValue">
+                    <input id="parentId" name="parentId" value='@row["ParentId"]' data-options="required:true" />
+                </td>
+                <td class="tableName">是否启用:</td>
+                <td class="tableValue">
+                    <input id="isUse" name="isUse" value='@row["IsUse"]' data-options="required:true" />
+                </td>
+            </tr>
+            <tr>
+                <td class="tableName">排序:</td>
+                <td class="tableValue">
+                    <input name="orderBy" class="easyui-numberbox" value='@row["OrderBy"]' precision="2" type="text" data-options="required:true" />
+                </td>
+            </tr>
+        </table>
+        }
+    </form>
+    <div style="text-align: center;">
+        <a class="easyui-linkbutton" id="updateEdit" data-options="iconCls:'icon-save'">更新</a>
+    </div>
+</div>
+<script type="text/javascript">
+    seajs.use(["Menu/Index", "PublicFunc/Easyui"], function (index, easyui) {
+        $(function () {
+            easyui.LoadCombobox("#parentId", '/Ajax/LoadParentId');
+            easyui.LoadCombobox("#isParent", '/Ajax/LoadIsParent');
+            easyui.LoadCombobox("#isUse", '/Ajax/LoadIsUse');
+            $('#updateEdit').on('click', index.UpdateEdit);
+        });
+    });
+</script>
+

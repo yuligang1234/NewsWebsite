@@ -1,0 +1,142 @@
+﻿@{
+    ViewBag.Title = "新闻内容-新增";
+    Layout = "~/Views/Shared/_Right.cshtml";
+}
+@RenderPage("~/Views/Shared/_Umeditor.cshtml")
+@RenderPage("~/Views/Shared/_WebUploader.cshtml")
+<link href="../../Content/Css/PublicCss/TableEdit.css" rel="stylesheet" />
+<div id="divMain">
+    <div>
+        <div class="bar">
+            <div style="text-align: right; margin-top: 5px; margin-bottom: 5px;">
+                <a class="easyui-linkbutton" style="height: 30px; width: 60px; margin-right: 10px;" onclick="history.go(-1)">返回</a>
+            </div>
+        </div>
+        <div class="tab">
+            <form id="addContentsForm" method="post">
+                <table class="tablebody">
+                    <tr>
+                        <td class="title">新闻菜单:</td>
+                        <td class="right">
+                            <input id="newsMenuId" name="newsMenuId" data-options="required:true" />
+                        </td>
+                        <td class="title">新闻类型:</td>
+                        <td class="right">
+                            <input id="newsType" name="newsType" data-options="required:true" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="title">新闻标题:</td>
+                        <td class="right" colspan="3">
+                            <input name="newsTitle" class="easyui-textbox" style="width: 60%;" data-options="required:true" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="title">链接地址:</td>
+                        <td class="right" colspan="3">
+                            <input name="httpUrl" class="easyui-textbox" style="width: 60%;" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="title">附件地址:</td>
+                        <td class="right" colspan="2">
+                            <input id="attachUploadId" name="attachId" type="hidden" />
+                            <div style="float: left;" id="attachFileList" class="uploader-list">
+                            </div>
+                        </td>
+                        <td>
+                            <a id="attachFilePicker" style="width: 60px;" class="easyui-linkbutton">选择</a>
+                            <a id="attachFileUpload" style="width: 60px; height: 30px;" class="easyui-linkbutton">上传</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="title">首页图片:</td>
+                        <td class="right" colspan="2">
+                            <input id="indexUploadId" name="indexImg" type="hidden" />
+                            <div style="float: left;" id="indexFileList" class="uploader-list">
+                            </div>
+                        </td>
+                        <td>
+                            <a id="indexFilePicker" style="width: 60px;" class="easyui-linkbutton">选择</a>
+                            <a id="indexFileUpload" style="width: 60px; height: 30px;" class="easyui-linkbutton">上传</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="title">新闻内容附件1:</td>
+                        <td class="right" colspan="2">
+                            <input id="attachContent1" name="attachContent1" type="hidden" />
+                            <div style="float: left;" id="attachContentList1" class="uploader-list">
+                            </div>
+                        </td>
+                        <td>
+                            <a id="attachContentPicker1" style="width: 60px;" class="easyui-linkbutton">选择</a>
+                            <a id="attachContentUpload1" style="width: 60px; height: 30px;" class="easyui-linkbutton">上传</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="title">新闻内容附件2:</td>
+                        <td class="right" colspan="2">
+                            <input id="attachContent2" name="attachContent2" type="hidden" />
+                            <div style="float: left;" id="attachContentList2" class="uploader-list">
+                            </div>
+                        </td>
+                        <td>
+                            <a id="attachContentPicker2" style="width: 60px;" class="easyui-linkbutton">选择</a>
+                            <a id="attachContentUpload2" style="width: 60px; height: 30px;" class="easyui-linkbutton">上传</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="title">新闻内容附件3:</td>
+                        <td class="right" colspan="2">
+                            <input id="attachContent3" name="attachContent3" type="hidden" />
+                            <div style="float: left;" id="attachContentList3" class="uploader-list">
+                            </div>
+                        </td>
+                        <td>
+                            <a id="attachContentPicker3" style="width: 60px;" class="easyui-linkbutton">选择</a>
+                            <a id="attachContentUpload3" style="width: 60px; height: 30px;" class="easyui-linkbutton">上传</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="title">新闻内容附件4:</td>
+                        <td class="right" colspan="2">
+                            <input id="attachContent4" name="attachContent4" type="hidden" />
+                            <div style="float: left;" id="attachContentList4" class="uploader-list">
+                            </div>
+                        </td>
+                        <td>
+                            <a id="attachContentPicker4" style="width: 60px;" class="easyui-linkbutton">选择</a>
+                            <a id="attachContentUpload4" style="width: 60px; height: 30px;" class="easyui-linkbutton">上传</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="title">新闻内容:</td>
+                        <td colspan="3" class="right">
+                            <script id="content" name="content" type="text/plain">
+                            </script>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+            <div style="text-align: center; margin-top: 10px;">
+                <a class="easyui-linkbutton" style="width: 60px; height: 30px;" id="saveAdd">保存</a>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    seajs.use(["Contents/Index", "PublicFunc/Easyui", "PublicFunc/UmEditor.js", "PublicFunc/WebUploader.js"], function (content, easyui, umeditor, webuploader) {
+        $(function () {
+            easyui.LoadCombobox("#newsMenuId", '/Ajax/LoadNoParentMenu', false, false, 200);
+            easyui.LoadCombobox("#newsType", '/Ajax/LoadNewsType', false, false, 100);
+            umeditor.InitializeUmeditor();
+            webuploader.InitializeUploadImage("indexFileList", "indexFilePicker", "indexFileUpload", "indexFileDelete", "indexUploadId");
+            webuploader.InitializeUploadFile("attachFileList", "attachFilePicker", "attachFileUpload", "attachFileDelete", "attachUploadId");
+            webuploader.InitializeUploadFile("attachContentList1", "attachContentPicker1", "attachContentUpload1", "attachContentDelete1", "attachContent1");
+            webuploader.InitializeUploadFile("attachContentList2", "attachContentPicker2", "attachContentUpload2", "attachContentDelete2", "attachContent2");
+            webuploader.InitializeUploadFile("attachContentList3", "attachContentPicker3", "attachContentUpload3", "attachContentDelete3", "attachContent3");
+            webuploader.InitializeUploadFile("attachContentList4", "attachContentPicker4", "attachContentUpload4", "attachContentDelete4", "attachContent4");
+            $('#saveAdd').on('click', content.SaveAdd);
+        });
+    });
+</script>

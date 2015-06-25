@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "导航菜单-列表";
+    Layout = "~/Views/Shared/_Right.cshtml";
+}
+<div id="searchTool" class="datagrid-toolbar">
+    <table>
+        <tr id="LoadOperate">
+        </tr>
+    </table>
+</div>
+<div id="gridTool">
+</div>
+<script type="text/javascript">
+    seajs.use(["NavMenu/Index", "PublicFunc/Index"], function (nav,pubjs) {
+        $(function () {
+            pubjs.LoadOperate("#LoadOperate");
+            nav.LoadGrid();
+            pubjs.LoadBody(40);
+            $('#FixedAdd').on('click', nav.FixedAdd);
+            $('#FixedEdit').on('click', nav.FixedEdit);
+            $('#FixedDelete').on('click', nav.FixedDelete);
+        });
+        $(window).resize(function () {
+            pubjs.LoadBody(40);
+        });
+    });
+</script>

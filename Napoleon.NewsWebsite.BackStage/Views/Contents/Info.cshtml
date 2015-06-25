@@ -1,0 +1,180 @@
+﻿@using System.Data
+@{
+    ViewBag.Title = "新闻内容-查看";
+    Layout = "~/Views/Shared/_Right.cshtml";
+}
+@RenderPage("~/Views/Shared/_Umeditor.cshtml")
+@RenderPage("~/Views/Shared/_WebUploader.cshtml")
+<link href="../../Content/Css/PublicCss/TableEdit.css" rel="stylesheet" />
+<div id="divMain">
+    <div>
+        <div class="bar">
+            <div style="text-align: right; margin-top: 5px;">
+                <a class="easyui-linkbutton" style="height: 30px; width: 60px; margin-right: 10px;" onclick="history.go(-1)">返回</a>
+            </div>
+        </div>
+        <div class="tab">
+            <form id="editContentsForm" method="post">
+                @{
+                    DataRow row = ((DataTable) ViewData["NewsContent"]).Rows[0];
+                <table class="tablebody">
+                    <tr>
+                        <td class="title">新闻菜单:</td>
+                        <td class="right">
+                            <input type="hidden" name="hiddenId" value='@row["Id"]' />
+                            <input id="newsMenuId" name="newsMenuId" data-options="required:true" value='@row["NewsMenuId"]' />
+                        </td>
+                        <td class="title">新闻类型:</td>
+                        <td class="right">
+                            <input id="newsType" name="newsType" value='@row["NewsType"]' data-options="required:true" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="title">新闻标题:</td>
+                        <td class="right" colspan="3">
+                            <input name="newsTitle" class="easyui-textbox" value='@row["NewsTitle"]' style="width: 60%;" data-options="required:true" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="title">链接地址:</td>
+                        <td class="right" colspan="3">
+                            <input name="httpUrl" class="easyui-textbox" value='@row["HttpUrl"]' style="width: 60%;" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="title">附件地址:</td>
+                        <td class="right" colspan="3">
+                            <input id="attachUploadId" name="attachId" type="hidden" value='@row["AttachId"]' />
+                            <div style="float: left;" id="attachFileList" class="uploader-list">
+                                @if (!string.IsNullOrWhiteSpace(@row["AttachId"].ToString()))
+                                    {
+                                        <div class="file-item thumbnail">
+                                            <div class="info">
+                                                @row["AttachTitle"].ToString()
+                                                    <a style="cursor: pointer; margin-left: 10px;" id="attachFileDelete">
+                                                        <img src="/Content/Image/Button/Delete.gif" /></a>
+                                            </div>
+                                        </div>
+                                }
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="title">首页图片:</td>
+                        <td class="right" colspan="3">
+                            <input id="indexUploadId" name="indexImg" type="hidden" value='@row["IndexId"]' />
+                            <div style="float: left;" id="indexFileList" class="uploader-list">
+                                @if (!string.IsNullOrWhiteSpace(@row["IndexId"].ToString()))
+                                    {
+                                        <div class="file-item thumbnail">
+                                            <div class="info">
+                                                @row["IndexImg"].ToString()
+                                                    <a style="cursor: pointer; margin-left: 10px;" id="indexFileDelete">
+                                                        <img src="/Content/Image/Button/Delete.gif" /></a>
+                                            </div>
+                                        </div>
+                                }
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="title">新闻内容附件1:</td>
+                        <td class="right" colspan="3">
+                            <input id="attachContent1" name="attachContent1" type="hidden" value='@row["AttachContentId1"]' />
+                            <div style="float: left;" id="attachContentList1" class="uploader-list">
+                                @if (!string.IsNullOrWhiteSpace(@row["AttachContentId1"].ToString()))
+                                    {
+                                        <div class="file-item thumbnail">
+                                            <div class="info">
+                                                @row["AttachContentTitle1"].ToString()
+                                                    <a style="cursor: pointer; margin-left: 10px;" id="attachContentDelete1">
+                                                        <img src="/Content/Image/Button/Delete.gif" /></a>
+                                            </div>
+                                        </div>
+                                }
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="title">新闻内容附件2:</td>
+                        <td class="right" colspan="3">
+                            <input id="attachContent2" name="attachContent2" type="hidden" value='@row["AttachContentId2"]' />
+                            <div style="float: left;" id="attachContentList2" class="uploader-list">
+                                @if (!string.IsNullOrWhiteSpace(@row["AttachContentId2"].ToString()))
+                                    {
+                                        <div class="file-item thumbnail">
+                                            <div class="info">
+                                                @row["AttachContentTitle2"].ToString()
+                                                    <a style="cursor: pointer; margin-left: 10px;" id="attachContentDelete2">
+                                                        <img src="/Content/Image/Button/Delete.gif" /></a>
+                                            </div>
+                                        </div>
+                                }
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="title">新闻内容附件3:</td>
+                        <td class="right" colspan="3">
+                            <input id="attachContent3" name="attachContent3" type="hidden" value='@row["AttachContentId3"]' />
+                            <div style="float: left;" id="attachContentList3" class="uploader-list">
+                                @if (!string.IsNullOrWhiteSpace(@row["AttachContentId3"].ToString()))
+                                    {
+                                        <div class="file-item thumbnail">
+                                            <div class="info">
+                                                @row["AttachContentTitle3"].ToString()
+                                                    <a style="cursor: pointer; margin-left: 10px;" id="attachContentDelete3">
+                                                        <img src="/Content/Image/Button/Delete.gif" /></a>
+                                            </div>
+                                        </div>
+                                }
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="title">新闻内容附件4:</td>
+                        <td class="right" colspan="3">
+                            <input id="attachContent4" name="attachContent4" type="hidden" value='@row["AttachContentId4"]' />
+                            <div style="float: left;" id="attachContentList4" class="uploader-list">
+                                @if (!string.IsNullOrWhiteSpace(@row["AttachContentId4"].ToString()))
+                                    {
+                                        <div class="file-item thumbnail">
+                                            <div class="info">
+                                                @row["AttachContentTitle4"].ToString()
+                                                    <a style="cursor: pointer; margin-left: 10px;" id="attachContentDelete4">
+                                                        <img src="/Content/Image/Button/Delete.gif" /></a>
+                                            </div>
+                                        </div>
+                                }
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="title">新闻内容:</td>
+                        <td colspan="3" class="right">
+                            <script id="content" name="content" type="text/plain">
+                                @Html.Raw(@row["NewsContent"])
+                            </script>
+                        </td>
+                    </tr>
+                </table>
+                }
+            </form>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    seajs.use(["Contents/Index", "PublicFunc/Easyui", "PublicFunc/UmEditor.js", "PublicFunc/WebUploader.js"], function (content, easyui, umeditor, webuploader) {
+        $(function () {
+            easyui.LoadCombobox("#newsMenuId", '/Ajax/LoadNoParentMenu', false, false, 200);
+            easyui.LoadCombobox("#newsType", '/Ajax/LoadNewsType', false, false, 100);
+            umeditor.InitializeUmeditor();
+            webuploader.InitializeUploadImage("indexFileList", "indexFilePicker", "indexFileUpload", "indexFileDelete", "indexUploadId");
+            webuploader.InitializeUploadFile("attachFileList", "attachFilePicker", "attachFileUpload", "attachFileDelete", "attachUploadId");
+            webuploader.InitializeUploadFile("attachContentList1", "attachContentPicker1", "attachContentUpload1", "attachContentDelete1", "attachContent1");
+            webuploader.InitializeUploadFile("attachContentList2", "attachContentPicker2", "attachContentUpload2", "attachContentDelete2", "attachContent2");
+            webuploader.InitializeUploadFile("attachContentList3", "attachContentPicker3", "attachContentUpload3", "attachContentDelete3", "attachContent3");
+            webuploader.InitializeUploadFile("attachContentList4", "attachContentPicker4", "attachContentUpload4", "attachContentDelete4", "attachContent4");
+        });
+    });
+</script>

@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "新闻内容-审核";
+    Layout = "~/Views/Shared/_Right.cshtml";
+}
+<table style="width: 100%; text-align: center;">
+    <tr style="height: 60px;">
+        <td>新闻审核:</td>
+        <td>
+            <input id="hiddenId" type="hidden" value='@ViewData["hiddenId"]' />
+            <input id="isVerify" data-options="required:true" />
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <div style="text-align: center;">
+                <a class="easyui-linkbutton" style="width: 60px; height: 30px;" id="saveSure">确认</a>
+            </div>
+        </td>
+    </tr>
+</table>
+<script type="text/javascript">
+    seajs.use(["Contents/Index", "PublicFunc/Easyui"], function (content, easyui) {
+        $(function () {
+            easyui.LoadCombobox("#isVerify", '/Ajax/LoadIsVerify', false, false, 60);
+            $('#saveSure').on('click', content.saveSure);
+        });
+    });
+</script>

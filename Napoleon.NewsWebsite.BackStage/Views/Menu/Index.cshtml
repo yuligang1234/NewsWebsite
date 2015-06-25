@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "新闻菜单-列表";
+    Layout = "~/Views/Shared/_Right.cshtml";
+}
+<div id="searchTool" class="datagrid-toolbar">
+    <table>
+        <tr id="LoadOperate">
+        </tr>
+    </table>
+</div>
+<div id="gridTool">
+</div>
+<script type="text/javascript">
+    seajs.use(["Menu/Index", "PublicFunc/Index"], function (menu,pubjs) {
+        $(function () {
+            pubjs.LoadOperate("#LoadOperate");
+            menu.LoadGrid();
+            pubjs.LoadBody(40);
+            $('#FixedAdd').on('click', menu.FixedAdd);
+            $('#FixedEdit').on('click', menu.FixedEdit);
+            $('#FixedDelete').on('click', menu.FixedDelete);
+        });
+        $(window).resize(function () {
+            pubjs.LoadBody(40);
+        });
+    });
+</script>

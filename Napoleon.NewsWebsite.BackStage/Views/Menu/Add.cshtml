@@ -1,0 +1,49 @@
+﻿@{
+    ViewBag.Title = "新闻菜单-新增";
+    Layout = "~/Views/Shared/_Right.cshtml";
+}
+<div style="padding: 15px;">
+    <form id="addMenuForm" method="post" data-options="novalidate:true">
+        <table class="pageTable">
+            <tr>
+                <td class="tableName">菜单名称:</td>
+                <td class="tableValue">
+                    <input name="menuName" class="easyui-textbox" data-options="required:true" />
+                </td>
+                <td class="tableName">是否父节点:</td>
+                <td class="tableValue">
+                    <input id="isParent" name="isParent" data-options="required:true" />
+                </td>
+            </tr>
+            <tr>
+                <td class="tableName">父菜单</td>
+                <td class="tableValue">
+                    <input id="parentId" name="parentId" data-options="required:true" />
+                </td>
+                <td class="tableName">是否启用:</td>
+                <td class="tableValue">
+                    <input id="isUse" name="isUse" data-options="required:true" />
+                </td>
+            </tr>
+            <tr>
+                <td class="tableName">排序:</td>
+                <td class="tableValue">
+                    <input name="orderBy" class="easyui-numberbox" precision="2" type="text" data-options="required:true" />
+                </td>
+            </tr>
+        </table>
+    </form>
+    <div style="text-align: center;">
+        <a class="easyui-linkbutton" id="saveAdd" data-options="iconCls:'icon-save'">保存</a>
+    </div>
+</div>
+<script type="text/javascript">
+    seajs.use(["Menu/Index", "PublicFunc/Easyui"], function (index, easyui) {
+        $(function () {
+            easyui.LoadCombobox("#parentId", '/Ajax/LoadParentId');
+            easyui.LoadCombobox("#isParent", '/Ajax/LoadIsParent');
+            easyui.LoadCombobox("#isUse", '/Ajax/LoadIsUse');
+            $('#saveAdd').on('click', index.SaveAdd);
+        });
+    });
+</script>

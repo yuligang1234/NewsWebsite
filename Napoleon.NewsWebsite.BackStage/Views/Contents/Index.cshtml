@@ -1,0 +1,48 @@
+﻿@{
+    ViewBag.Title = "新闻内容-列表";
+    Layout = "~/Views/Shared/_Right.cshtml";
+}
+<div id="searchTool" class="datagrid-toolbar">
+    <table>
+        <tr class="searchContent">
+            <td align="center">新闻菜单
+            </td>
+            <td align="left">
+                <input type='text' id='newsMenuId' size='20' />
+            </td>
+            <td align="center">新闻类型
+            </td>
+            <td align="left">
+                <input type='text' id='newsType' size='20' />
+            </td>
+            <td align="center">新闻标题
+            </td>
+            <td align="left">
+                <input type='text' id='newsTitle' class='easyui-textbox' size='20' />
+            </td>
+        </tr>
+        <tr id="LoadOperate">
+        </tr>
+    </table>
+</div>
+<div id="gridTool">
+</div>
+<script type="text/javascript">
+    seajs.use(["Contents/Index", "PublicFunc/Index"], function (content, pubjs) {
+        $(function () {
+            pubjs.LoadOperate("#LoadOperate");
+            content.LoadComboboxs();
+            content.LoadGrid();
+            pubjs.LoadBody(75);
+            $('#FixedSearch').on('click', content.FixedSearch);
+            $('#FixedLook').on('click', content.FixedLook);
+            $('#FixedAdd').on('click', content.FixedAdd);
+            $('#FixedEdit').on('click', content.FixedEdit);
+            $('#FixedDelete').on('click', content.FixedDelete);
+            $('#FixedVerify').on('click', content.FixedVerify);
+        });
+        $(window).resize(function () {
+            pubjs.LoadBody(75);
+        });
+    });
+</script>

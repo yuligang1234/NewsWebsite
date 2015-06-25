@@ -1,0 +1,53 @@
+﻿@{
+    ViewBag.Title = "导航菜单-新增";
+    Layout = "~/Views/Shared/_Right.cshtml";
+}
+<div style="padding: 15px;">
+    <form id="addNaVMenuForm" method="post" data-options="novalidate:true">
+        <table class="pageTable">
+            <tr>
+                <td class="tableName">导航菜单:</td>
+                <td class="tableValue">
+                    <input name="menuName" class="easyui-textbox" data-options="required:true" />
+                </td>
+                <td class="tableName">菜单类型:</td>
+                <td class="tableValue">
+                    <input id="menuType" name="menuType" data-options="required:true" />
+                </td>
+            </tr>
+            <tr>
+                <td class="tableName">新闻菜单</td>
+                <td class="tableValue">
+                    <input id="menuId" name="menuId" />
+                </td>
+                <td class="tableName">菜单链接:</td>
+                <td class="tableValue">
+                    <input id="menuUrl" name="menuUrl" class="easyui-textbox" data-options="readonly:true" />
+                </td>
+            </tr>
+            <tr>
+                <td class="tableName">是否启用:</td>
+                <td class="tableValue">
+                    <input id="isUse" name="isUse" data-options="required:true" />
+                </td>
+                <td class="tableName">排序:</td>
+                <td class="tableValue">
+                    <input name="orderBy" class="easyui-numberbox" precision="2" type="text" data-options="required:true" />
+                </td>
+            </tr>
+        </table>
+    </form>
+    <div style="text-align: center;">
+        <a class="easyui-linkbutton" id="saveAdd" data-options="iconCls:'icon-save'">保存</a>
+    </div>
+</div>
+<script type="text/javascript">
+    seajs.use(["NavMenu/Index", "PublicFunc/Easyui"], function (index, easyui) {
+        $(function () {
+            easyui.LoadCombobox("#menuType", '/Ajax/LoadMenuType', undefined, undefined, undefined, index.SelectNewsType);
+            easyui.LoadCombobox("#menuId", '/Ajax/LoadMenuList', true, false, 140);
+            easyui.LoadCombobox("#isUse", '/Ajax/LoadIsUse');
+            $('#saveAdd').on('click', index.SaveAdd);
+        });
+    });
+</script>

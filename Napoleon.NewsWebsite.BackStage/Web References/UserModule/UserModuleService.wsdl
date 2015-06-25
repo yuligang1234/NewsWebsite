@@ -1,0 +1,1382 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="CheckUserXml">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="passWord" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="projectId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckUserXmlResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CheckUserXmlResult" type="tns:SystemUser" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SystemUser">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProjectId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PassWords" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RealName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MobilePhone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IsUse" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserAddress" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Sort" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="Remark" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Operator" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CheckUserJson">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="passWord" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="projectId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckUserJsonResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CheckUserJsonResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckUserAjaxJson">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="passWord" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="projectId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckUserAjaxJsonResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ChangePwXml">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="newPw" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChangePwXmlResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ChangePwXmlResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChangePwAjaxJson">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="newPw" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChangePwAjaxJsonResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="UpdatePwXml">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="passWord" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ids" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdatePwXmlResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdatePwXmlResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdatePwAjaxJson">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="passWord" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ids" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdatePwAjaxJsonResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetRuleXml">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="projectId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRuleXmlResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRuleXmlResult" type="tns:SystemUserAndRule" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SystemUserAndRule">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ProjectId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RuleId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RuleParentId" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetRuleJson">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="projectId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRuleJsonResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRuleJsonResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRuleAjaxJson">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="projectId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRuleAjaxJsonResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetMenuXml">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ruleId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="projectId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMenuXmlResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMenuXmlResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMenuJson">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ruleId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="projectId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMenuJsonResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMenuJsonResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMenuAjaxJson">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ruleId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="projectId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMenuAjaxJsonResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetOperationXml">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ruleId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="menuId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="projectId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOperationXmlResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetOperationXmlResult" type="tns:ArrayOfSystemMenu" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfSystemMenu">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SystemMenu" nillable="true" type="tns:SystemMenu" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SystemMenu">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ProjectId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ParentId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HtmlId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Url" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Icon" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Sort" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="Remark" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Operator" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetOperationJson">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ruleId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="menuId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="projectId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOperationJsonResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetOperationJsonResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOperationAjaxJson">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ruleId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="menuId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="projectId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOperationAjaxJsonResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="SystemUser" nillable="true" type="tns:SystemUser" />
+      <s:element name="string" nillable="true" type="s:string" />
+      <s:element name="int" type="s:int" />
+      <s:element name="SystemUserAndRule" nillable="true" type="tns:SystemUserAndRule" />
+      <s:element name="DataTable" nillable="true">
+        <s:complexType>
+          <s:sequence>
+            <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+            <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ArrayOfSystemMenu" nillable="true" type="tns:ArrayOfSystemMenu" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="CheckUserXmlSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckUserXml" />
+  </wsdl:message>
+  <wsdl:message name="CheckUserXmlSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckUserXmlResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckUserJsonSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckUserJson" />
+  </wsdl:message>
+  <wsdl:message name="CheckUserJsonSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckUserJsonResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckUserAjaxJsonSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckUserAjaxJson" />
+  </wsdl:message>
+  <wsdl:message name="CheckUserAjaxJsonSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckUserAjaxJsonResponse" />
+  </wsdl:message>
+  <wsdl:message name="ChangePwXmlSoapIn">
+    <wsdl:part name="parameters" element="tns:ChangePwXml" />
+  </wsdl:message>
+  <wsdl:message name="ChangePwXmlSoapOut">
+    <wsdl:part name="parameters" element="tns:ChangePwXmlResponse" />
+  </wsdl:message>
+  <wsdl:message name="ChangePwAjaxJsonSoapIn">
+    <wsdl:part name="parameters" element="tns:ChangePwAjaxJson" />
+  </wsdl:message>
+  <wsdl:message name="ChangePwAjaxJsonSoapOut">
+    <wsdl:part name="parameters" element="tns:ChangePwAjaxJsonResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdatePwXmlSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdatePwXml" />
+  </wsdl:message>
+  <wsdl:message name="UpdatePwXmlSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdatePwXmlResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdatePwAjaxJsonSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdatePwAjaxJson" />
+  </wsdl:message>
+  <wsdl:message name="UpdatePwAjaxJsonSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdatePwAjaxJsonResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRuleXmlSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRuleXml" />
+  </wsdl:message>
+  <wsdl:message name="GetRuleXmlSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRuleXmlResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRuleJsonSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRuleJson" />
+  </wsdl:message>
+  <wsdl:message name="GetRuleJsonSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRuleJsonResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRuleAjaxJsonSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRuleAjaxJson" />
+  </wsdl:message>
+  <wsdl:message name="GetRuleAjaxJsonSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRuleAjaxJsonResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMenuXmlSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMenuXml" />
+  </wsdl:message>
+  <wsdl:message name="GetMenuXmlSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMenuXmlResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMenuJsonSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMenuJson" />
+  </wsdl:message>
+  <wsdl:message name="GetMenuJsonSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMenuJsonResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMenuAjaxJsonSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMenuAjaxJson" />
+  </wsdl:message>
+  <wsdl:message name="GetMenuAjaxJsonSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMenuAjaxJsonResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOperationXmlSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOperationXml" />
+  </wsdl:message>
+  <wsdl:message name="GetOperationXmlSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOperationXmlResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOperationJsonSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOperationJson" />
+  </wsdl:message>
+  <wsdl:message name="GetOperationJsonSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOperationJsonResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOperationAjaxJsonSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOperationAjaxJson" />
+  </wsdl:message>
+  <wsdl:message name="GetOperationAjaxJsonSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOperationAjaxJsonResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckUserXmlHttpGetIn">
+    <wsdl:part name="userName" type="s:string" />
+    <wsdl:part name="passWord" type="s:string" />
+    <wsdl:part name="projectId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CheckUserXmlHttpGetOut">
+    <wsdl:part name="Body" element="tns:SystemUser" />
+  </wsdl:message>
+  <wsdl:message name="CheckUserJsonHttpGetIn">
+    <wsdl:part name="userName" type="s:string" />
+    <wsdl:part name="passWord" type="s:string" />
+    <wsdl:part name="projectId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CheckUserJsonHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="CheckUserAjaxJsonHttpGetIn">
+    <wsdl:part name="userName" type="s:string" />
+    <wsdl:part name="passWord" type="s:string" />
+    <wsdl:part name="projectId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CheckUserAjaxJsonHttpGetOut" />
+  <wsdl:message name="ChangePwXmlHttpGetIn">
+    <wsdl:part name="id" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="newPw" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ChangePwXmlHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="ChangePwAjaxJsonHttpGetIn">
+    <wsdl:part name="id" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="newPw" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ChangePwAjaxJsonHttpGetOut" />
+  <wsdl:message name="UpdatePwXmlHttpGetIn">
+    <wsdl:part name="passWord" type="s:string" />
+    <wsdl:part name="ids" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdatePwXmlHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="UpdatePwAjaxJsonHttpGetIn">
+    <wsdl:part name="passWord" type="s:string" />
+    <wsdl:part name="ids" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdatePwAjaxJsonHttpGetOut" />
+  <wsdl:message name="GetRuleXmlHttpGetIn">
+    <wsdl:part name="userId" type="s:string" />
+    <wsdl:part name="projectId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetRuleXmlHttpGetOut">
+    <wsdl:part name="Body" element="tns:SystemUserAndRule" />
+  </wsdl:message>
+  <wsdl:message name="GetRuleJsonHttpGetIn">
+    <wsdl:part name="userId" type="s:string" />
+    <wsdl:part name="projectId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetRuleJsonHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetRuleAjaxJsonHttpGetIn">
+    <wsdl:part name="userId" type="s:string" />
+    <wsdl:part name="projectId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetRuleAjaxJsonHttpGetOut" />
+  <wsdl:message name="GetMenuXmlHttpGetIn">
+    <wsdl:part name="ruleId" type="s:string" />
+    <wsdl:part name="projectId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMenuXmlHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="GetMenuJsonHttpGetIn">
+    <wsdl:part name="ruleId" type="s:string" />
+    <wsdl:part name="projectId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMenuJsonHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMenuAjaxJsonHttpGetIn">
+    <wsdl:part name="ruleId" type="s:string" />
+    <wsdl:part name="projectId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMenuAjaxJsonHttpGetOut" />
+  <wsdl:message name="GetOperationXmlHttpGetIn">
+    <wsdl:part name="ruleId" type="s:string" />
+    <wsdl:part name="menuId" type="s:string" />
+    <wsdl:part name="projectId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetOperationXmlHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfSystemMenu" />
+  </wsdl:message>
+  <wsdl:message name="GetOperationJsonHttpGetIn">
+    <wsdl:part name="ruleId" type="s:string" />
+    <wsdl:part name="menuId" type="s:string" />
+    <wsdl:part name="projectId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetOperationJsonHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetOperationAjaxJsonHttpGetIn">
+    <wsdl:part name="ruleId" type="s:string" />
+    <wsdl:part name="menuId" type="s:string" />
+    <wsdl:part name="projectId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetOperationAjaxJsonHttpGetOut" />
+  <wsdl:message name="CheckUserXmlHttpPostIn">
+    <wsdl:part name="userName" type="s:string" />
+    <wsdl:part name="passWord" type="s:string" />
+    <wsdl:part name="projectId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CheckUserXmlHttpPostOut">
+    <wsdl:part name="Body" element="tns:SystemUser" />
+  </wsdl:message>
+  <wsdl:message name="CheckUserJsonHttpPostIn">
+    <wsdl:part name="userName" type="s:string" />
+    <wsdl:part name="passWord" type="s:string" />
+    <wsdl:part name="projectId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CheckUserJsonHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="CheckUserAjaxJsonHttpPostIn">
+    <wsdl:part name="userName" type="s:string" />
+    <wsdl:part name="passWord" type="s:string" />
+    <wsdl:part name="projectId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CheckUserAjaxJsonHttpPostOut" />
+  <wsdl:message name="ChangePwXmlHttpPostIn">
+    <wsdl:part name="id" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="newPw" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ChangePwXmlHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="ChangePwAjaxJsonHttpPostIn">
+    <wsdl:part name="id" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="newPw" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ChangePwAjaxJsonHttpPostOut" />
+  <wsdl:message name="UpdatePwXmlHttpPostIn">
+    <wsdl:part name="passWord" type="s:string" />
+    <wsdl:part name="ids" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdatePwXmlHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="UpdatePwAjaxJsonHttpPostIn">
+    <wsdl:part name="passWord" type="s:string" />
+    <wsdl:part name="ids" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdatePwAjaxJsonHttpPostOut" />
+  <wsdl:message name="GetRuleXmlHttpPostIn">
+    <wsdl:part name="userId" type="s:string" />
+    <wsdl:part name="projectId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetRuleXmlHttpPostOut">
+    <wsdl:part name="Body" element="tns:SystemUserAndRule" />
+  </wsdl:message>
+  <wsdl:message name="GetRuleJsonHttpPostIn">
+    <wsdl:part name="userId" type="s:string" />
+    <wsdl:part name="projectId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetRuleJsonHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetRuleAjaxJsonHttpPostIn">
+    <wsdl:part name="userId" type="s:string" />
+    <wsdl:part name="projectId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetRuleAjaxJsonHttpPostOut" />
+  <wsdl:message name="GetMenuXmlHttpPostIn">
+    <wsdl:part name="ruleId" type="s:string" />
+    <wsdl:part name="projectId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMenuXmlHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="GetMenuJsonHttpPostIn">
+    <wsdl:part name="ruleId" type="s:string" />
+    <wsdl:part name="projectId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMenuJsonHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMenuAjaxJsonHttpPostIn">
+    <wsdl:part name="ruleId" type="s:string" />
+    <wsdl:part name="projectId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMenuAjaxJsonHttpPostOut" />
+  <wsdl:message name="GetOperationXmlHttpPostIn">
+    <wsdl:part name="ruleId" type="s:string" />
+    <wsdl:part name="menuId" type="s:string" />
+    <wsdl:part name="projectId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetOperationXmlHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfSystemMenu" />
+  </wsdl:message>
+  <wsdl:message name="GetOperationJsonHttpPostIn">
+    <wsdl:part name="ruleId" type="s:string" />
+    <wsdl:part name="menuId" type="s:string" />
+    <wsdl:part name="projectId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetOperationJsonHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetOperationAjaxJsonHttpPostIn">
+    <wsdl:part name="ruleId" type="s:string" />
+    <wsdl:part name="menuId" type="s:string" />
+    <wsdl:part name="projectId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetOperationAjaxJsonHttpPostOut" />
+  <wsdl:portType name="UserModuleServiceSoap">
+    <wsdl:operation name="CheckUserXml">
+      <wsdl:input message="tns:CheckUserXmlSoapIn" />
+      <wsdl:output message="tns:CheckUserXmlSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckUserJson">
+      <wsdl:input message="tns:CheckUserJsonSoapIn" />
+      <wsdl:output message="tns:CheckUserJsonSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckUserAjaxJson">
+      <wsdl:input message="tns:CheckUserAjaxJsonSoapIn" />
+      <wsdl:output message="tns:CheckUserAjaxJsonSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangePwXml">
+      <wsdl:input message="tns:ChangePwXmlSoapIn" />
+      <wsdl:output message="tns:ChangePwXmlSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangePwAjaxJson">
+      <wsdl:input message="tns:ChangePwAjaxJsonSoapIn" />
+      <wsdl:output message="tns:ChangePwAjaxJsonSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePwXml">
+      <wsdl:input message="tns:UpdatePwXmlSoapIn" />
+      <wsdl:output message="tns:UpdatePwXmlSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePwAjaxJson">
+      <wsdl:input message="tns:UpdatePwAjaxJsonSoapIn" />
+      <wsdl:output message="tns:UpdatePwAjaxJsonSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRuleXml">
+      <wsdl:input message="tns:GetRuleXmlSoapIn" />
+      <wsdl:output message="tns:GetRuleXmlSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRuleJson">
+      <wsdl:input message="tns:GetRuleJsonSoapIn" />
+      <wsdl:output message="tns:GetRuleJsonSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRuleAjaxJson">
+      <wsdl:input message="tns:GetRuleAjaxJsonSoapIn" />
+      <wsdl:output message="tns:GetRuleAjaxJsonSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMenuXml">
+      <wsdl:input message="tns:GetMenuXmlSoapIn" />
+      <wsdl:output message="tns:GetMenuXmlSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMenuJson">
+      <wsdl:input message="tns:GetMenuJsonSoapIn" />
+      <wsdl:output message="tns:GetMenuJsonSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMenuAjaxJson">
+      <wsdl:input message="tns:GetMenuAjaxJsonSoapIn" />
+      <wsdl:output message="tns:GetMenuAjaxJsonSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOperationXml">
+      <wsdl:input message="tns:GetOperationXmlSoapIn" />
+      <wsdl:output message="tns:GetOperationXmlSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOperationJson">
+      <wsdl:input message="tns:GetOperationJsonSoapIn" />
+      <wsdl:output message="tns:GetOperationJsonSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOperationAjaxJson">
+      <wsdl:input message="tns:GetOperationAjaxJsonSoapIn" />
+      <wsdl:output message="tns:GetOperationAjaxJsonSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="UserModuleServiceHttpGet">
+    <wsdl:operation name="CheckUserXml">
+      <wsdl:input message="tns:CheckUserXmlHttpGetIn" />
+      <wsdl:output message="tns:CheckUserXmlHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckUserJson">
+      <wsdl:input message="tns:CheckUserJsonHttpGetIn" />
+      <wsdl:output message="tns:CheckUserJsonHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckUserAjaxJson">
+      <wsdl:input message="tns:CheckUserAjaxJsonHttpGetIn" />
+      <wsdl:output message="tns:CheckUserAjaxJsonHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangePwXml">
+      <wsdl:input message="tns:ChangePwXmlHttpGetIn" />
+      <wsdl:output message="tns:ChangePwXmlHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangePwAjaxJson">
+      <wsdl:input message="tns:ChangePwAjaxJsonHttpGetIn" />
+      <wsdl:output message="tns:ChangePwAjaxJsonHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePwXml">
+      <wsdl:input message="tns:UpdatePwXmlHttpGetIn" />
+      <wsdl:output message="tns:UpdatePwXmlHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePwAjaxJson">
+      <wsdl:input message="tns:UpdatePwAjaxJsonHttpGetIn" />
+      <wsdl:output message="tns:UpdatePwAjaxJsonHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRuleXml">
+      <wsdl:input message="tns:GetRuleXmlHttpGetIn" />
+      <wsdl:output message="tns:GetRuleXmlHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRuleJson">
+      <wsdl:input message="tns:GetRuleJsonHttpGetIn" />
+      <wsdl:output message="tns:GetRuleJsonHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRuleAjaxJson">
+      <wsdl:input message="tns:GetRuleAjaxJsonHttpGetIn" />
+      <wsdl:output message="tns:GetRuleAjaxJsonHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMenuXml">
+      <wsdl:input message="tns:GetMenuXmlHttpGetIn" />
+      <wsdl:output message="tns:GetMenuXmlHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMenuJson">
+      <wsdl:input message="tns:GetMenuJsonHttpGetIn" />
+      <wsdl:output message="tns:GetMenuJsonHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMenuAjaxJson">
+      <wsdl:input message="tns:GetMenuAjaxJsonHttpGetIn" />
+      <wsdl:output message="tns:GetMenuAjaxJsonHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOperationXml">
+      <wsdl:input message="tns:GetOperationXmlHttpGetIn" />
+      <wsdl:output message="tns:GetOperationXmlHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOperationJson">
+      <wsdl:input message="tns:GetOperationJsonHttpGetIn" />
+      <wsdl:output message="tns:GetOperationJsonHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOperationAjaxJson">
+      <wsdl:input message="tns:GetOperationAjaxJsonHttpGetIn" />
+      <wsdl:output message="tns:GetOperationAjaxJsonHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="UserModuleServiceHttpPost">
+    <wsdl:operation name="CheckUserXml">
+      <wsdl:input message="tns:CheckUserXmlHttpPostIn" />
+      <wsdl:output message="tns:CheckUserXmlHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckUserJson">
+      <wsdl:input message="tns:CheckUserJsonHttpPostIn" />
+      <wsdl:output message="tns:CheckUserJsonHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckUserAjaxJson">
+      <wsdl:input message="tns:CheckUserAjaxJsonHttpPostIn" />
+      <wsdl:output message="tns:CheckUserAjaxJsonHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangePwXml">
+      <wsdl:input message="tns:ChangePwXmlHttpPostIn" />
+      <wsdl:output message="tns:ChangePwXmlHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangePwAjaxJson">
+      <wsdl:input message="tns:ChangePwAjaxJsonHttpPostIn" />
+      <wsdl:output message="tns:ChangePwAjaxJsonHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePwXml">
+      <wsdl:input message="tns:UpdatePwXmlHttpPostIn" />
+      <wsdl:output message="tns:UpdatePwXmlHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePwAjaxJson">
+      <wsdl:input message="tns:UpdatePwAjaxJsonHttpPostIn" />
+      <wsdl:output message="tns:UpdatePwAjaxJsonHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRuleXml">
+      <wsdl:input message="tns:GetRuleXmlHttpPostIn" />
+      <wsdl:output message="tns:GetRuleXmlHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRuleJson">
+      <wsdl:input message="tns:GetRuleJsonHttpPostIn" />
+      <wsdl:output message="tns:GetRuleJsonHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRuleAjaxJson">
+      <wsdl:input message="tns:GetRuleAjaxJsonHttpPostIn" />
+      <wsdl:output message="tns:GetRuleAjaxJsonHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMenuXml">
+      <wsdl:input message="tns:GetMenuXmlHttpPostIn" />
+      <wsdl:output message="tns:GetMenuXmlHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMenuJson">
+      <wsdl:input message="tns:GetMenuJsonHttpPostIn" />
+      <wsdl:output message="tns:GetMenuJsonHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMenuAjaxJson">
+      <wsdl:input message="tns:GetMenuAjaxJsonHttpPostIn" />
+      <wsdl:output message="tns:GetMenuAjaxJsonHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOperationXml">
+      <wsdl:input message="tns:GetOperationXmlHttpPostIn" />
+      <wsdl:output message="tns:GetOperationXmlHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOperationJson">
+      <wsdl:input message="tns:GetOperationJsonHttpPostIn" />
+      <wsdl:output message="tns:GetOperationJsonHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOperationAjaxJson">
+      <wsdl:input message="tns:GetOperationAjaxJsonHttpPostIn" />
+      <wsdl:output message="tns:GetOperationAjaxJsonHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="UserModuleServiceSoap" type="tns:UserModuleServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CheckUserXml">
+      <soap:operation soapAction="http://tempuri.org/CheckUserXml" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckUserJson">
+      <soap:operation soapAction="http://tempuri.org/CheckUserJson" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckUserAjaxJson">
+      <soap:operation soapAction="http://tempuri.org/CheckUserAjaxJson" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangePwXml">
+      <soap:operation soapAction="http://tempuri.org/ChangePwXml" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangePwAjaxJson">
+      <soap:operation soapAction="http://tempuri.org/ChangePwAjaxJson" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePwXml">
+      <soap:operation soapAction="http://tempuri.org/UpdatePwXml" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePwAjaxJson">
+      <soap:operation soapAction="http://tempuri.org/UpdatePwAjaxJson" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRuleXml">
+      <soap:operation soapAction="http://tempuri.org/GetRuleXml" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRuleJson">
+      <soap:operation soapAction="http://tempuri.org/GetRuleJson" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRuleAjaxJson">
+      <soap:operation soapAction="http://tempuri.org/GetRuleAjaxJson" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMenuXml">
+      <soap:operation soapAction="http://tempuri.org/GetMenuXml" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMenuJson">
+      <soap:operation soapAction="http://tempuri.org/GetMenuJson" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMenuAjaxJson">
+      <soap:operation soapAction="http://tempuri.org/GetMenuAjaxJson" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOperationXml">
+      <soap:operation soapAction="http://tempuri.org/GetOperationXml" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOperationJson">
+      <soap:operation soapAction="http://tempuri.org/GetOperationJson" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOperationAjaxJson">
+      <soap:operation soapAction="http://tempuri.org/GetOperationAjaxJson" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="UserModuleServiceSoap12" type="tns:UserModuleServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CheckUserXml">
+      <soap12:operation soapAction="http://tempuri.org/CheckUserXml" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckUserJson">
+      <soap12:operation soapAction="http://tempuri.org/CheckUserJson" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckUserAjaxJson">
+      <soap12:operation soapAction="http://tempuri.org/CheckUserAjaxJson" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangePwXml">
+      <soap12:operation soapAction="http://tempuri.org/ChangePwXml" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangePwAjaxJson">
+      <soap12:operation soapAction="http://tempuri.org/ChangePwAjaxJson" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePwXml">
+      <soap12:operation soapAction="http://tempuri.org/UpdatePwXml" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePwAjaxJson">
+      <soap12:operation soapAction="http://tempuri.org/UpdatePwAjaxJson" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRuleXml">
+      <soap12:operation soapAction="http://tempuri.org/GetRuleXml" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRuleJson">
+      <soap12:operation soapAction="http://tempuri.org/GetRuleJson" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRuleAjaxJson">
+      <soap12:operation soapAction="http://tempuri.org/GetRuleAjaxJson" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMenuXml">
+      <soap12:operation soapAction="http://tempuri.org/GetMenuXml" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMenuJson">
+      <soap12:operation soapAction="http://tempuri.org/GetMenuJson" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMenuAjaxJson">
+      <soap12:operation soapAction="http://tempuri.org/GetMenuAjaxJson" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOperationXml">
+      <soap12:operation soapAction="http://tempuri.org/GetOperationXml" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOperationJson">
+      <soap12:operation soapAction="http://tempuri.org/GetOperationJson" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOperationAjaxJson">
+      <soap12:operation soapAction="http://tempuri.org/GetOperationAjaxJson" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="UserModuleServiceHttpGet" type="tns:UserModuleServiceHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="CheckUserXml">
+      <http:operation location="/CheckUserXml" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckUserJson">
+      <http:operation location="/CheckUserJson" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckUserAjaxJson">
+      <http:operation location="/CheckUserAjaxJson" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="ChangePwXml">
+      <http:operation location="/ChangePwXml" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangePwAjaxJson">
+      <http:operation location="/ChangePwAjaxJson" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePwXml">
+      <http:operation location="/UpdatePwXml" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePwAjaxJson">
+      <http:operation location="/UpdatePwAjaxJson" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="GetRuleXml">
+      <http:operation location="/GetRuleXml" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRuleJson">
+      <http:operation location="/GetRuleJson" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRuleAjaxJson">
+      <http:operation location="/GetRuleAjaxJson" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="GetMenuXml">
+      <http:operation location="/GetMenuXml" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMenuJson">
+      <http:operation location="/GetMenuJson" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMenuAjaxJson">
+      <http:operation location="/GetMenuAjaxJson" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="GetOperationXml">
+      <http:operation location="/GetOperationXml" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOperationJson">
+      <http:operation location="/GetOperationJson" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOperationAjaxJson">
+      <http:operation location="/GetOperationAjaxJson" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="UserModuleServiceHttpPost" type="tns:UserModuleServiceHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="CheckUserXml">
+      <http:operation location="/CheckUserXml" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckUserJson">
+      <http:operation location="/CheckUserJson" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckUserAjaxJson">
+      <http:operation location="/CheckUserAjaxJson" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="ChangePwXml">
+      <http:operation location="/ChangePwXml" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangePwAjaxJson">
+      <http:operation location="/ChangePwAjaxJson" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePwXml">
+      <http:operation location="/UpdatePwXml" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePwAjaxJson">
+      <http:operation location="/UpdatePwAjaxJson" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="GetRuleXml">
+      <http:operation location="/GetRuleXml" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRuleJson">
+      <http:operation location="/GetRuleJson" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRuleAjaxJson">
+      <http:operation location="/GetRuleAjaxJson" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="GetMenuXml">
+      <http:operation location="/GetMenuXml" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMenuJson">
+      <http:operation location="/GetMenuJson" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMenuAjaxJson">
+      <http:operation location="/GetMenuAjaxJson" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="GetOperationXml">
+      <http:operation location="/GetOperationXml" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOperationJson">
+      <http:operation location="/GetOperationJson" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOperationAjaxJson">
+      <http:operation location="/GetOperationAjaxJson" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="UserModuleService">
+    <wsdl:port name="UserModuleServiceSoap" binding="tns:UserModuleServiceSoap">
+      <soap:address location="http://user.52sxx.com/UserModuleService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="UserModuleServiceSoap12" binding="tns:UserModuleServiceSoap12">
+      <soap12:address location="http://user.52sxx.com/UserModuleService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="UserModuleServiceHttpGet" binding="tns:UserModuleServiceHttpGet">
+      <http:address location="http://user.52sxx.com/UserModuleService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="UserModuleServiceHttpPost" binding="tns:UserModuleServiceHttpPost">
+      <http:address location="http://user.52sxx.com/UserModuleService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

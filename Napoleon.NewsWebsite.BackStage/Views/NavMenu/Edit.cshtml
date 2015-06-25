@@ -1,0 +1,63 @@
+﻿@using System.Data
+@{
+    ViewBag.Title = "导航菜单-编辑";
+    Layout = "~/Views/Shared/_Right.cshtml";
+}
+<div style="padding: 15px;">
+    <form id="editNavMenuForm" method="post" data-options="novalidate:true">
+        @{
+           DataRow nav = ((DataTable) ViewData["nav"]).Rows[0];
+         <table class="pageTable">
+             <tr>
+                 <td class="tableName">导航菜单:</td>
+                 <td class="tableValue">
+                     <input name="hiddenId" type="hidden" value='@nav["Id"]' />
+                     <input name="menuName" class="easyui-textbox" value='@nav["MenuName"]' data-options="required:true" />
+                 </td>
+                 <td class="tableName">菜单类型:</td>
+                 <td class="tableValue">
+                     <input id="menuType" name="menuType" value='@nav["MenuType"]' data-options="required:true" />
+                 </td>
+             </tr>
+             <tr>
+                 <td class="tableName">新闻菜单</td>
+                 <td class="tableValue">
+                     <input id="menuId" name="menuId" value='@nav["MenuId"]' />
+                 </td>
+                 <td class="tableName">菜单链接:</td>
+                 <td class="tableValue">
+                     <input id="menuUrl" name="menuUrl" class="easyui-textbox" value='@nav["MenuUrl"]' />
+                 </td>
+             </tr>
+             <tr>
+                 <td class="tableName">是否启用:</td>
+                 <td class="tableValue">
+                     <input id="isUse" name="isUse" value='@nav["IsUse"]' data-options="required:true" />
+                 </td>
+                 <td class="tableName">排序:</td>
+                 <td class="tableValue">
+                     <input name="orderBy" class="easyui-numberbox" value='@nav["OrderBy"]' precision="2" type="text" data-options="required:true" />
+                 </td>
+             </tr>
+         </table>
+        }
+    </form>
+    <div style="text-align: center;">
+        <a class="easyui-linkbutton" id="updateEdit" data-options="iconCls:'icon-save'">更新</a>
+    </div>
+</div>
+<script type="text/javascript">
+    seajs.use(["NavMenu/Index", "PublicFunc/Easyui"], function (index, easyui) {
+        $(function () {
+            easyui.LoadCombobox("#menuType", '/Ajax/LoadMenuType', undefined, undefined, undefined, index.SelectNewsType);
+            //判断是否设置新闻菜单为可读属性
+            var result = false;
+            if ($('#menuType').combobox('getValues')[0] == "2015010") {
+                result = true;
+            }
+            easyui.LoadCombobox("#menuId", '/Ajax/LoadMenuList', result, false, 140);
+            easyui.LoadCombobox("#isUse", '/Ajax/LoadIsUse');
+            $('#updateEdit').on('click', index.UpdateEdit);
+        });
+    });
+</script>

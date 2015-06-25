@@ -1,0 +1,43 @@
+﻿@{
+    ViewBag.Title = "日志内容-列表";
+    Layout = "~/Views/Shared/_Right.cshtml";
+}
+<div id="searchTool" class="datagrid-toolbar">
+    <table>
+        <tr class="searchContent">
+            <td align="center">日志内容
+            </td>
+            <td align="left">
+                <input type='text' id='content' class='easyui-textbox' size='20' />
+            </td>
+            <td align="right">日志时间
+            </td>
+            <td align="left">
+                <input type='text' id='datetime1' class='easyui-datebox' size='20' />
+            </td>
+            <td align="center">到
+            </td>
+            <td align="left">
+                <input type='text' id='datetime2' class='easyui-datebox' size='20' />
+            </td>
+        </tr>
+        <tr id="LoadOperate">
+        </tr>
+    </table>
+</div>
+<div id="gridTool">
+</div>
+<script type="text/javascript">
+    seajs.use(["Log/Index", "PublicFunc/Index"], function (index, pubJs) {
+        $(function () {
+            index.LoadOperate("#LoadOperate");
+            index.LoadGrid();
+            pubJs.LoadBody(65);
+            $('#FixedSearch').on('click', index.FixedSearch);
+            $('#FixedExcel').on('click', index.FixedExcel);
+        });
+        $(window).resize(function () {
+            pubJs.LoadBody(65);
+        });
+    });
+</script>
