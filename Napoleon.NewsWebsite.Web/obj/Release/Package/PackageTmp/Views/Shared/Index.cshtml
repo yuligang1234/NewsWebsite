@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    @RenderPage("~/Views/Shared/_Bootstrap.cshtml")
+    <link href="../../Content/Css/Shared/Index.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="top">
+        <div class="topImg">
+        </div>
+        <!--菜单导航-->
+        @Html.Action("NavMenu","Controls")
+    </div>
+    <div class="main">
+        @RenderBody()
+    </div>
+    <div class="bottom">
+        <table>
+            <tbody>
+                <tr>
+                    <td colspan="7">
+                        <hr />
+                    </td>
+                </tr>
+                <tr>
+                    <td rowspan="3">
+                        <img alt="微信二维码" src="http://7xkx6x.com1.z0.glb.clouddn.com/1.jpg">
+                    </td>
+                    <td>主办单位：Napoleon
+                    </td>
+                    <td rowspan="3">
+                        <img alt="微信二维码" src="http://7xkx6x.com1.z0.glb.clouddn.com/1.jpg">
+                    </td>
+                </tr>
+                <tr>
+                    <td>地址：绍兴市越城区城南街道繁荣村30号&nbsp; 电子邮件：<a href="mailto:dotnet100.lovems@gmail.com">dotnet100.lovems@gmail.com</a>&nbsp;&nbsp; 浙ICP备15008718号
+                    </td>
+                </tr>
+                <tr>
+                    <td>技术支持：Napoleon&nbsp;&nbsp;&nbsp;&nbsp; 电话：0575-88888888 &nbsp;&nbsp;&nbsp;
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

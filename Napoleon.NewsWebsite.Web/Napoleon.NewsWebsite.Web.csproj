@@ -39,31 +39,103 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Antlr3.Runtime">
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
     <Reference Include="Autofac">
       <HintPath>..\packages\Autofac.3.5.2\lib\net40\Autofac.dll</HintPath>
     </Reference>
     <Reference Include="Autofac.Integration.Mvc">
       <HintPath>..\packages\Autofac.Mvc4.3.1.0\lib\net40\Autofac.Integration.Mvc.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Web.DynamicData" />
-    <Reference Include="System.Web.Entity" />
-    <Reference Include="System.Web.ApplicationServices" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Web" />
-    <Reference Include="System.Web.Extensions" />
-    <Reference Include="System.Web.Abstractions" />
-    <Reference Include="System.Web.Routing" />
-    <Reference Include="System.Xml" />
-    <Reference Include="System.Configuration" />
-    <Reference Include="System.Web.Services" />
-    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>..\DLL\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Napoleon.Db">
+      <HintPath>..\DLL\Napoleon.Db.dll</HintPath>
+    </Reference>
+    <Reference Include="Napoleon.Log4Module.Log">
+      <HintPath>..\DLL\Napoleon.Log4Module.Log.dll</HintPath>
+    </Reference>
+    <Reference Include="Napoleon.PublicCommon">
+      <HintPath>..\DLL\Napoleon.PublicCommon.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.5.0.4\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI">
+      <HintPath>..\DLL\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OOXML">
+      <HintPath>..\DLL\NPOI.OOXML.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net">
+      <HintPath>..\DLL\NPOI.OpenXml4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXmlFormats">
+      <HintPath>..\DLL\NPOI.OpenXmlFormats.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.DynamicData">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Entity">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.ApplicationServices">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Core">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Extensions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Abstractions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Routing">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Configuration">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Services">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.EnterpriseServices">
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
@@ -72,15 +144,13 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.Mvc.FixedDisplayModes.1.0.0\lib\net40\Microsoft.Web.Mvc.FixedDisplayModes.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="System.Net.Http">
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.Net.Http.2.0.30506.0\lib\net40\System.Net.Http.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.30506.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.Net.Http.WebRequest">
       <Private>True</Private>
@@ -92,9 +162,11 @@
     </Reference>
     <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.4.0.30506.0\lib\net40\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.4.0.30506.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
@@ -116,8 +188,16 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
+    <Reference Include="WebGrease">
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\AuthConfig.cs" />
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="Controllers\ControlsController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -127,6 +207,54 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="Content\bootstrap\css\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap\css\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap\css\bootstrap.css" />
+    <Content Include="Content\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Content\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\bootstrap\js\bootstrap.js" />
+    <Content Include="Content\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Content\bootstrap\js\npm.js" />
+    <Content Include="Content\Css\Controls\ContentList.css" />
+    <Content Include="Content\Css\Controls\Menu.css" />
+    <Content Include="Content\Css\Controls\RollPic.css" />
+    <Content Include="Content\Css\Controls\List.css" />
+    <Content Include="Content\Css\Error\Index.css" />
+    <Content Include="Content\Css\Home\Contents.css" />
+    <Content Include="Content\Css\Home\Index.css" />
+    <Content Include="Content\Css\PublicCss\DataGrid.css" />
+    <Content Include="Content\Css\PublicCss\Icons.css" />
+    <Content Include="Content\Css\PublicCss\TableEdit.css" />
+    <Content Include="Content\Css\Shared\Index.css" />
+    <Content Include="Content\Image\1.jpg" />
+    <Content Include="Content\Image\banner.jpg" />
+    <Content Include="Content\Image\Button\Delete.gif" />
+    <Content Include="Content\Image\Controls\ico17.jpg" />
+    <Content Include="Content\Image\Controls\ico18.jpg" />
+    <Content Include="Content\Image\Controls\ico20.jpg" />
+    <Content Include="Content\Image\Controls\ico21.jpg" />
+    <Content Include="Content\Image\Controls\ico25.jpg" />
+    <Content Include="Content\Image\Error\error_404.png" />
+    <Content Include="Content\Image\Error\error_other.png" />
+    <Content Include="Content\Image\img.png" />
+    <Content Include="Content\Image\nav_line.png" />
+    <Content Include="Content\Js\Controls\ContentList.js" />
+    <Content Include="Content\Js\Controls\RollPic.js" />
+    <Content Include="Content\Js\Home\Index.js" />
+    <Content Include="Content\Js\jquery-1.11.3.min.js" />
+    <Content Include="Content\Js\PublicJs\Base\Index.js" />
+    <Content Include="Content\Js\PublicJs\Base\StringFunc.js" />
+    <Content Include="Content\Js\PublicJs\Cryptography\md5.js" />
+    <Content Include="Content\Js\PublicJs\Event\KeyboardEvent.js" />
+    <Content Include="Content\Js\PublicJs\Format\SerializeFunc.js" />
+    <Content Include="Content\Js\PublicJs\Frame\Easyui.js" />
+    <Content Include="Content\Js\PublicJs\Frame\UmEditor.js" />
+    <Content Include="Content\Js\PublicJs\Frame\WebUploader.js" />
+    <Content Include="Content\Js\PublicJs\Http\UrlJs.js" />
+    <Content Include="Content\Js\PublicJs\Reg\RegJs.js" />
+    <Content Include="Content\Js\sea-debug.js" />
+    <Content Include="Content\Js\sea.js" />
+    <Content Include="Content\PlugIns\jqPaginator.js" />
     <Content Include="FavIcon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
@@ -140,11 +268,76 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_Bootstrap.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Napoleon.NewsWebsite.BLL\Napoleon.NewsWebsite.BLL.csproj">
+      <Project>{44bef30b-5b50-4cbd-9314-cd30b7783d25}</Project>
+      <Name>Napoleon.NewsWebsite.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Napoleon.NewsWebsite.Common\Napoleon.NewsWebsite.Common.csproj">
+      <Project>{13e1eece-eddc-407c-8d5b-725e62e7be17}</Project>
+      <Name>Napoleon.NewsWebsite.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Napoleon.NewsWebsite.DAL\Napoleon.NewsWebsite.DAL.csproj">
+      <Project>{e0fe4f0e-9a76-4b46-ac94-dc0f33911d91}</Project>
+      <Name>Napoleon.NewsWebsite.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Napoleon.NewsWebsite.IBLL\Napoleon.NewsWebsite.IBLL.csproj">
+      <Project>{d26b9aaa-4659-439f-8816-1a0cd173abbb}</Project>
+      <Name>Napoleon.NewsWebsite.IBLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Napoleon.NewsWebsite.IDAL\Napoleon.NewsWebsite.IDAL.csproj">
+      <Project>{5d4aad98-67d9-4d6c-9059-63e15d900ab9}</Project>
+      <Name>Napoleon.NewsWebsite.IDAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Napoleon.NewsWebsite.Model\Napoleon.NewsWebsite.Model.csproj">
+      <Project>{14a7eb60-8b4b-460d-b82f-2b6b0eb0949a}</Project>
+      <Name>Napoleon.NewsWebsite.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\NavMenu.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\RollPic.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Error\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Error\Message.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Error\NoFound.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap\css\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap\css\bootstrap.css.map" />
+    <Content Include="Content\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <None Include="Properties\PublishProfiles\新闻网站.pubxml" />
+    <Content Include="Views\Shared\SingleList.cshtml" />
+    <Content Include="Views\Shared\OrderList.cshtml" />
+    <Content Include="Views\Home\List.cshtml" />
+    <Content Include="Views\Shared\Position.cshtml" />
+    <Content Include="Views\Shared\Menu.cshtml" />
+    <Content Include="Views\Shared\ContentList.cshtml" />
+    <Content Include="Views\Home\Contents.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

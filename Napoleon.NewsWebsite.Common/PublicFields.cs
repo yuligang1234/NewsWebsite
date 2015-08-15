@@ -6,6 +6,8 @@ namespace Napoleon.NewsWebsite.Common
     public class PublicFields
     {
 
+        #region 系统字段
+
         /// <summary>
         ///  用户Cookies的Key
         /// </summary>
@@ -34,6 +36,19 @@ namespace Napoleon.NewsWebsite.Common
         /// Created : 2015-01-20 14:49:09
         public static string RuleIdCookies = "RuleId";
 
+        #endregion
+
+        #region 系统URL
+
+        /// <summary>
+        ///  新闻后台网址
+        /// </summary>
+        /// Author  : Napoleon
+        /// Created : 2015-07-04 15:16:08
+        public static string NewsOa = "http://newsoa.52sxx.com";
+
+        #endregion
+
         #region SystemCode(系统编码)
 
         /// <summary>
@@ -58,7 +73,7 @@ namespace Napoleon.NewsWebsite.Common
         public static string IsParent = "2015004";
 
         /// <summary>
-        ///  为父节点
+        ///  是父节点
         /// </summary>
         /// Author  : Napoleon
         /// Created : 2015-06-09 14:40:00
@@ -70,6 +85,13 @@ namespace Napoleon.NewsWebsite.Common
         /// Author  : Napoleon
         /// Created : 2015-06-09 14:34:55
         public static string IsVerify = "2015007";
+
+        /// <summary>
+        ///  通过审核
+        /// </summary>
+        /// Author  : Napoleon
+        /// Created : 2015-07-04 15:51:15
+        public static string Verify = "2015008";
 
         /// <summary>
         ///  菜单类型
@@ -87,12 +109,17 @@ namespace Napoleon.NewsWebsite.Common
 
         #endregion
 
+        #region 导出
+
         /// <summary>
         ///  日志导出Excel文件名
         /// </summary>
         /// Author  : Napoleon
         /// Created : 2015-01-15 14:41:10
         public static string LogExcelName = DateTime.Now.ToString("yyyyMMddhhmmssff") + ".xls";
+
+        #endregion
+
 
     }
 }

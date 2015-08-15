@@ -39,11 +39,25 @@ namespace Napoleon.NewsWebsite.IDAL
         List<NewsContents> GetNewsContentsByIds(string id);
 
         /// <summary>
-        ///  查询数据
+        ///  根据菜单ID查询数据
         /// </summary>
         /// Author  :Napoleon
         /// Created :2015-06-06 02:02:20
-        DataTable GetNewsContentsTable(string id);
+        DataTable GetNewsContentsTable(string newsMenuId, string newsStatus);
+
+        /// <summary>
+        ///  查询首页图片,根据日期排序
+        /// </summary>
+        /// Author  : Napoleon
+        /// Created : 2015-08-13 14:08:00
+        DataTable GetIndexImages(string newsStatus);
+
+        /// <summary>
+        ///  根据菜单ID查询数据
+        /// </summary>
+        /// Author  :Napoleon
+        /// Created :2015-06-13 10:54:06
+        DataTable GetNewsContentsForList(string newsMenuId, string newsStatus = "", int top = 0);
 
         /// <summary>
         ///  新增数据

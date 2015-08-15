@@ -1,0 +1,84 @@
+﻿.columnLeft {
+    width: 268px;
+    float: left;
+    margin-top: 10px;
+}
+
+.columnRight {
+    margin-left: 268px;
+    min-height: 500px;
+    padding: 0 0 0 20px;
+    _padding-top: 5px;
+    overflow: hidden;
+    background: #fff;
+}
+
+.cTitleBx {
+    height: 60px;
+    background: #fff;
+    position: relative;
+}
+
+    .cTitleBx p {
+        _padding: 10px 0;
+        line-height: 50px;
+        _line-height: 30px;
+        width: 100%;
+        font-size: 22px;
+        color: #333333;
+        display: block;
+        border-radius: 5px 5px 0 0;
+        background: #eeeeee;
+        position: absolute;
+        bottom: 0;
+        text-indent: 1em;
+    }
+
+        .cTitleBx p img {
+            margin-right: 20px;
+        }
+
+        .cTitleBx p * {
+            vertical-align: middle;
+        }
+
+.ul5 {
+    border: #eeeeee 1px solid;
+    background: #fff;
+    padding: 5px 0;
+    overflow: hidden;
+}
+
+    .ul5 li {
+        padding: 5px 10px;
+        line-height: 30px;
+    }
+
+        .ul5 li a {
+            display: block;
+            background: url(../../Image/Controls/ico17.jpg) no-repeat left #f1f1f1;
+            padding-left: 43px;
+            color: #666666;
+            text-decoration: none;
+        }
+
+            .ul5 li a:hover, .ul5 li.active a {
+                background: url(../../Image/Controls/ico18.jpg) no-repeat left #007de7;
+                color: #fff;
+            }
+
+.columnLeftSearch {
+    padding: 10px;
+}
+
+    .columnLeftSearch input {
+        padding: 7px 0;
+        border: none;
+        _border: 0;
+        *border: 0;
+        text-indent: 1em;
+    }
+
+    .columnLeftSearch img {
+        cursor: pointer;
+    }

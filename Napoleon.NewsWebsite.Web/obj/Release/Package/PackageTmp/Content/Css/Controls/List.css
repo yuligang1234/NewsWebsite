@@ -1,0 +1,123 @@
+﻿
+/*#region 单个列表*/
+.text ul {
+    overflow: hidden;
+}
+
+.text li {
+    height: 30px;
+    line-height: 30px;
+    float: left;
+    margin-left: 10px;
+    display: inline;
+    border-bottom: 1px dashed #d7d7d7;
+    background-image: url(../../Image/img.png);
+    background-repeat: no-repeat;
+    background-position: -206px -620px;
+    padding-left: 16px;
+}
+
+    .text li span {
+        float: right;
+        color: #828282;
+        width: 60px;
+    }
+
+    .text li a {
+        cursor: pointer;
+        float: left;
+        text-decoration: none;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+
+        .text li a.subclass {
+            color: #006edb;
+            padding-right: 5px;
+            width: 70px;
+        }
+
+        .text li a.title {
+            color: #5a5a5a;
+        }
+
+            .text li a.title:hover {
+                color: #ff5a00;
+                text-decoration: none;
+            }
+/*#endregion*/
+
+/*#region 排序列表*/
+.discount {
+    height: 300px;
+    border-right: 1px solid #d2d2d2;
+    border-left: 1px solid #d2d2d2;
+    border-bottom: 1px solid #d2d2d2;
+    overflow: hidden;
+    background-color: #fff;
+    padding-left: 10px;
+}
+
+    .discount li {
+        height: 32px;
+        border-bottom-width: 1px;
+        border-bottom-style: dashed;
+        border-bottom-color: #d7d7d7;
+        display: inline;
+        float: left;
+        line-height: 32px;
+    }
+
+        .discount li a {
+            cursor: pointer;
+            float: left;
+            text-decoration: none;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+    .discount i {
+        height: 15px;
+        width: 15px;
+        color: #fff;
+        display: block;
+        float: left;
+        text-align: center;
+        margin-top: 8px;
+        line-height: 15px;
+        font-style: normal;
+        background-color: #d2d2d2;
+    }
+
+        .discount i.orange_bg {
+            background: #ff8700;
+        }
+
+    .discount a {
+        float: left;
+        padding-left: 8px;
+        color: #5a5a5a;
+        display: block;
+        height: 32px;
+        overflow: hidden;
+    }
+
+        .discount a:hover {
+            color: #006dc0;
+            text-decoration: underline;
+        }
+
+    .discount span {
+        width: 45px;
+        float: left;
+        color: #006dc0;
+        text-align: right;
+    }
+
+        .discount span b {
+            color: #ff3700;
+            padding-right: 5px;
+        }
+/*#endregion*/

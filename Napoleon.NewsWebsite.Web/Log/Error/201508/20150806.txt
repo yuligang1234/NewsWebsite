@@ -1,0 +1,7 @@
+操作用户: 系统
+用户IP: ::1
+操作时间: 2015/8/6 9:50:00
+操作类型: 系统错误
+操作地址: http://localhost:38167/Home/List
+操作内容: 执行处理程序“System.Web.Mvc.HttpHandlerUtil+ServerExecuteHttpHandlerAsyncWrapper”的子请求时出错。
+____________________________________________________________________

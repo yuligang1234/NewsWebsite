@@ -55,13 +55,43 @@ namespace Napoleon.NewsWebsite.BLL
         }
 
         /// <summary>
-        ///  查询数据
+        ///  根据菜单ID查询数据
         /// </summary>
         /// Author  :Napoleon
         /// Created :2015-06-06 02:02:20
-        public DataTable GetNewsContentsTable(string id)
+        public DataTable GetNewsContentsTable(string newsMenuId, string newsStatus)
         {
-            return _newscontentsDao.GetNewsContentsTable(id);
+            return _newscontentsDao.GetNewsContentsTable(newsMenuId, newsStatus);
+        }
+
+        /// <summary>
+        ///  根据菜单ID查询数据
+        /// </summary>
+        /// Author  :Napoleon
+        /// Created :2015-06-13 10:54:06
+        public DataTable GetNewsContentsForList(string newsMenuId, string newsStatus = "", int top = 0)
+        {
+            return _newscontentsDao.GetNewsContentsForList(newsMenuId, newsStatus, top);
+        }
+
+        /// <summary>
+        ///  查询首页图片,根据日期排序
+        /// </summary>
+        /// Author  : Napoleon
+        /// Created : 2015-08-13 14:08:00
+        public DataTable GetIndexImages(string newsStatus)
+        {
+            return _newscontentsDao.GetIndexImages(newsStatus);
+        }
+
+        /// <summary>
+        ///  根据ID数组查询数据
+        /// </summary>
+        /// Author  :Napoleon
+        /// Created :2015-06-13 10:54:06
+        public List<NewsContents> GetNewsContentsByIds(string id)
+        {
+            return _newscontentsDao.GetNewsContentsByIds(id);
         }
 
         /// <summary>

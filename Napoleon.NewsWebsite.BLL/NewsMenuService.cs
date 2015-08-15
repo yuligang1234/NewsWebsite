@@ -38,6 +38,16 @@ namespace Napoleon.NewsWebsite.BLL
         }
 
         /// <summary>
+        ///  查询是否有子菜单数据
+        /// </summary>
+        /// Author  :Napoleon
+        /// Created :2015-06-06 02:02:25
+        public DataTable GetNewsMenuParentId(string parentId)
+        {
+            return _newsmenuDao.GetNewsMenuParentId(parentId);
+        }
+
+        /// <summary>
         ///  查询数据
         /// </summary>
         /// Author  :Napoleon

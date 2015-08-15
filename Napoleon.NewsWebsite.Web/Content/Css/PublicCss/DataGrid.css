@@ -1,0 +1,40 @@
+﻿
+/*#region 查询条件样式*/
+
+.searchTool {
+    float: left;
+}
+
+.searchContent td {
+    width: 90px;
+    padding: 5px;
+}
+
+/*#endregion*/
+
+/*#region 列表样式*/
+
+#gridTool {
+    float: left;
+}
+
+/*#endregion*/
+
+/*#region 编辑页面样式*/
+
+.pageTable {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 20px;
+}
+
+    .pageTable .tableName {
+        text-align: right;
+        width: 100px;
+    }
+
+    .pageTable .tableValue input {
+        width: 180px;
+    }
+
+/*#endregion*/

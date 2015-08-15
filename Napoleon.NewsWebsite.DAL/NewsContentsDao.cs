@@ -26,14 +26,15 @@ namespace Napoleon.NewsWebsite.DAL
             {
                 List<SqlParameter> sqlParameters = new List<SqlParameter>();
                 StringBuilder sql = new StringBuilder();
-                sql.Append("SELECT new.number,new.Id,new.NewsMenuId,new.NewsTitle,new.NewsType,new.IndexImg,new.NewsContent,new.HttpUrl,new.AttachId,new.RleaseTime,new.NewsStatus,new.NewsHit FROM (SELECT ROW_NUMBER() OVER(ORDER BY RleaseTime) AS number,nc.Id,nm.MenuName AS NewsMenuId,nc.NewsTitle,sc.CodeName AS NewsType,IndexImg,NewsContent,HttpUrl,uf.FileTilte AS AttachId,RleaseTime,sc1.CodeName AS NewsStatus,NewsHit FROM dbo.News_Contents AS nc LEFT JOIN dbo.System_Code AS sc ON sc.Id=nc.NewsType LEFT JOIN dbo.News_Menu AS nm ON nm.Id=nc.NewsMenuId LEFT JOIN dbo.System_Code AS sc1 ON sc1.Id=nc.NewsStatus LEFT JOIN dbo.News_UploadFile AS uf ON uf.Id=nc.AttachId) AS new WHERE new.number>@start AND new.number<=@end");
-                sqlParameters.Add(new SqlParameter("@start", start));
-                sqlParameters.Add(new SqlParameter("@end", end));
+                sql.Append("SELECT new.number,new.Id,new.NewsMenuId,new.NewsTitle,new.NewsType,new.IndexImg,new.HttpUrl,new.AttachId,new.RleaseTime,new.NewsStatus,new.NewsHit FROM (SELECT ROW_NUMBER() OVER(ORDER BY RleaseTime) AS number,nc.Id,nm.MenuName AS NewsMenuId,nc.NewsTitle,sc.CodeName AS NewsType,IndexImg,HttpUrl,uf.FileTilte AS AttachId,RleaseTime,sc1.CodeName AS NewsStatus,NewsHit FROM dbo.News_Contents AS nc LEFT JOIN dbo.System_Code AS sc ON sc.Id=nc.NewsType LEFT JOIN dbo.News_Menu AS nm ON nm.Id=nc.NewsMenuId LEFT JOIN dbo.System_Code AS sc1 ON sc1.Id=nc.NewsStatus LEFT JOIN dbo.News_UploadFile AS uf ON uf.Id=nc.AttachId");
                 if (!string.IsNullOrWhiteSpace(newsMenuId))
                 {
-                    sql.Append(" AND new.NewsMenuId=@newsMenuId");
+                    sql.Append(" where nc.NewsMenuId=@newsMenuId");
                     sqlParameters.Add(new SqlParameter("@newsMenuId", newsMenuId));
                 }
+                sql.Append(") AS new WHERE new.number>@start AND new.number<=@end");
+                sqlParameters.Add(new SqlParameter("@start", start));
+                sqlParameters.Add(new SqlParameter("@end", end));
                 if (!string.IsNullOrWhiteSpace(newsTitle))
                 {
                     sql.Append(" AND new.NewsTitle like @newsTitle");
@@ -41,7 +42,7 @@ namespace Napoleon.NewsWebsite.DAL
                 }
                 if (!string.IsNullOrWhiteSpace(newsType))
                 {
-                    sql.Append(" AND new.NewsType like @newsType");
+                    sql.Append(" AND new.NewsType = @newsType");
                     sqlParameters.Add(new SqlParameter("@newsType", newsType));
                 }
                 dt = DbHelper.GetDataTable(sql.ToString(), sqlParameters.ToArray());
@@ -65,12 +66,13 @@ namespace Napoleon.NewsWebsite.DAL
             {
                 List<SqlParameter> sqlParameters = new List<SqlParameter>();
                 StringBuilder sql = new StringBuilder();
-                sql.Append("SELECT count(*) FROM (SELECT ROW_NUMBER() OVER(ORDER BY RleaseTime) AS number,nc.Id,nm.MenuName AS NewsMenuId,nc.NewsTitle,sc.CodeName AS NewsType,IndexImg,NewsContent,HttpUrl,AttachId,RleaseTime,sc1.CodeName AS NewsStatus,NewsHit FROM dbo.News_Contents AS nc LEFT JOIN dbo.System_Code AS sc ON sc.Id=nc.NewsType LEFT JOIN dbo.News_Menu AS nm ON nm.Id=nc.NewsMenuId LEFT JOIN dbo.System_Code AS sc1 ON sc1.Id=nc.NewsStatus) AS new WHERE 1=1");
+                sql.Append("SELECT count(*) FROM (SELECT ROW_NUMBER() OVER(ORDER BY RleaseTime) AS number,nc.Id,nm.MenuName AS NewsMenuId,nc.NewsTitle,sc.CodeName AS NewsType,IndexImg,HttpUrl,AttachId,RleaseTime,sc1.CodeName AS NewsStatus,NewsHit FROM dbo.News_Contents AS nc LEFT JOIN dbo.System_Code AS sc ON sc.Id=nc.NewsType LEFT JOIN dbo.News_Menu AS nm ON nm.Id=nc.NewsMenuId LEFT JOIN dbo.System_Code AS sc1 ON sc1.Id=nc.NewsStatus");
                 if (!string.IsNullOrWhiteSpace(newsMenuId))
                 {
-                    sql.Append(" AND new.NewsMenuId=@newsMenuId");
+                    sql.Append(" where nc.NewsMenuId=@newsMenuId");
                     sqlParameters.Add(new SqlParameter("@newsMenuId", newsMenuId));
                 }
+                sql.Append(") AS new WHERE 1=1");
                 if (!string.IsNullOrWhiteSpace(newsTitle))
                 {
                     sql.Append(" AND new.NewsTitle like @newsTitle");
@@ -101,7 +103,7 @@ namespace Napoleon.NewsWebsite.DAL
             DataTable dt = new DataTable();
             try
             {
-                string sql = string.Format("SELECT nc.Id,nc.NewsMenuId,nc.NewsTitle,nc.NewsType,nc.HttpUrl,uf.Id AS AttachId,uf.FileTilte AS AttachTitle,uf1.Id AS AttachContentId1,uf1.FileTilte AS AttachContentTitle1,uf2.Id AS AttachContentId2,uf2.FileTilte AS AttachContentTitle2,uf3.Id AS AttachContentId3,uf3.FileTilte AS AttachContentTitle3,uf4.Id AS AttachContentId4,uf4.FileTilte as AttachContentTitle4,uf5.Id AS indexId,uf5.FileTilte AS indexImg,nc.NewsContent,nc.NewsHit,nc.RleaseTime,sc.CodeName AS NewsStatus FROM dbo.News_Contents AS nc LEFT JOIN dbo.News_UploadFile AS uf ON uf.Id=nc.AttachId LEFT JOIN dbo.News_UploadFile AS uf1 ON uf1.Id=AttachContent1 LEFT JOIN dbo.News_UploadFile AS uf2 ON uf2.Id=nc.AttachContent2 LEFT JOIN dbo.News_UploadFile AS uf3 ON uf3.Id=nc.AttachContent3 LEFT JOIN dbo.News_UploadFile AS uf4 ON uf4.Id=nc.AttachContent4 LEFT JOIN dbo.News_UploadFile AS uf5 ON uf5.Id=nc.IndexImg LEFT JOIN dbo.System_Code AS sc ON sc.Id=nc.NewsStatus where nc.Id=@id ORDER BY nc.RleaseTime DESC");
+                string sql = string.Format("SELECT nc.Id,nc.NewsMenuId,nc.NewsTitle,nc.NewsType,nc.HttpUrl,uf.Id AS AttachId,uf.FileTilte AS AttachTitle,uf1.Id AS AttachContentId1,uf1.FileTilte AS AttachContentTitle1,uf1.FileUrl as AttachUrl1,uf2.Id AS AttachContentId2,uf2.FileTilte AS AttachContentTitle2,uf2.FileUrl as AttachUrl2,uf3.Id AS AttachContentId3,uf3.FileTilte AS AttachContentTitle3,uf3.FileUrl as AttachUrl3,uf4.Id AS AttachContentId4,uf4.FileTilte as AttachContentTitle4,uf4.FileUrl as AttachUrl4,uf5.Id AS indexId,uf5.FileTilte AS indexImg,nc.NewsContent,nc.NewsHit,nc.RleaseTime,sc.CodeName AS NewsStatus FROM dbo.News_Contents AS nc LEFT JOIN dbo.News_UploadFile AS uf ON uf.Id=nc.AttachId LEFT JOIN dbo.News_UploadFile AS uf1 ON uf1.Id=AttachContent1 LEFT JOIN dbo.News_UploadFile AS uf2 ON uf2.Id=nc.AttachContent2 LEFT JOIN dbo.News_UploadFile AS uf3 ON uf3.Id=nc.AttachContent3 LEFT JOIN dbo.News_UploadFile AS uf4 ON uf4.Id=nc.AttachContent4 LEFT JOIN dbo.News_UploadFile AS uf5 ON uf5.Id=nc.IndexImg LEFT JOIN dbo.System_Code AS sc ON sc.Id=nc.NewsStatus where nc.Id=@id ORDER BY nc.RleaseTime DESC");
                 SqlParameter[] parameters =
                 {
                     new SqlParameter("@id",id) 
@@ -116,22 +118,87 @@ namespace Napoleon.NewsWebsite.DAL
         }
 
         /// <summary>
-        ///  查询数据
+        ///  根据菜单ID查询数据
         /// </summary>
         /// Author  :Napoleon
         /// Created :2015-06-13 10:54:06
-        public DataTable GetNewsContentsTable(string id)
+        public DataTable GetNewsContentsTable(string newsMenuId, string newsStatus)
         {
             DataTable dt = new DataTable();
             try
             {
-                StringBuilder sb = new StringBuilder();
-                sb.AppendFormat("Select Id,NewsMenuId,NewsTitle,NewsType,IndexImg,NewsContent,HttpUrl,AttachId,RleaseTime,NewsStatus,NewsHit from News_Contents where Id=@id");
-                SqlParameter[] parameters = 
-                    {
-                        new SqlParameter("@id",id)
-                    };
-                dt = DbHelper.GetDataTable(sb.ToString(), parameters);
+                List<SqlParameter> parameters = new List<SqlParameter>();
+                StringBuilder sql = new StringBuilder();
+                sql.Append("SELECT nc.Id,nc.NewsMenuId,nc.NewsTitle,nc.NewsType,nc.HttpUrl,uf.Id AS AttachId,uf.FileTilte AS AttachTitle,uf1.Id AS AttachContentId1,uf1.FileTilte AS AttachContentTitle1,uf2.Id AS AttachContentId2,uf2.FileTilte AS AttachContentTitle2,uf3.Id AS AttachContentId3,uf3.FileTilte AS AttachContentTitle3,uf4.Id AS AttachContentId4,uf4.FileTilte as AttachContentTitle4,uf5.Id AS indexId,uf5.FileUrl AS indexUrl,uf5.FileTilte AS indexImg,nc.NewsContent,nc.NewsHit,nc.RleaseTime,sc.CodeName AS NewsStatus FROM dbo.News_Contents AS nc LEFT JOIN dbo.News_UploadFile AS uf ON uf.Id=nc.AttachId LEFT JOIN dbo.News_UploadFile AS uf1 ON uf1.Id=AttachContent1 LEFT JOIN dbo.News_UploadFile AS uf2 ON uf2.Id=nc.AttachContent2 LEFT JOIN dbo.News_UploadFile AS uf3 ON uf3.Id=nc.AttachContent3 LEFT JOIN dbo.News_UploadFile AS uf4 ON uf4.Id=nc.AttachContent4 LEFT JOIN dbo.News_UploadFile AS uf5 ON uf5.Id=nc.IndexImg LEFT JOIN dbo.System_Code AS sc ON sc.Id=nc.NewsStatus where nc.NewsMenuId = @NewsMenuId");
+                parameters.Add(new SqlParameter("@NewsMenuId", newsMenuId));
+                if (!string.IsNullOrWhiteSpace(newsStatus))
+                {
+                    sql.Append(" and nc.NewsStatus = @NewsStatus");
+                    parameters.Add(new SqlParameter("@NewsStatus", newsStatus));
+                }
+                sql.Append(" ORDER BY nc.RleaseTime DESC");
+                dt = DbHelper.GetDataTable(sql.ToString(), parameters.ToArray());
+            }
+            catch (Exception exception)
+            {
+                Log4Dao.InsertLog4(exception.Message);
+            }
+            return dt;
+        }
+
+        /// <summary>
+        ///  根据菜单ID查询数据
+        /// </summary>
+        /// Author  :Napoleon
+        /// Created :2015-06-13 10:54:06
+        public DataTable GetNewsContentsForList(string newsMenuId, string newsStatus = "", int top = 0)
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                List<SqlParameter> parameters = new List<SqlParameter>();
+                StringBuilder sql = new StringBuilder();
+                sql.Append("SELECT");
+                if (top > 0)
+                {
+                    sql.AppendFormat(" Top {0}", top);
+                }
+                sql.AppendFormat(" nc.Id,nm.MenuName,nc.NewsMenuId,nc.NewsTitle,nc.NewsType,nc.HttpUrl,uf.Id AS AttachId,uf.FileTilte AS AttachTitle,uf1.Id AS AttachContentId1,uf1.FileTilte AS AttachContentTitle1,uf2.Id AS AttachContentId2,uf2.FileTilte AS AttachContentTitle2,uf3.Id AS AttachContentId3,uf3.FileTilte AS AttachContentTitle3,uf4.Id AS AttachContentId4,uf4.FileTilte as AttachContentTitle4,uf5.Id AS indexId,uf5.FileUrl AS indexUrl,uf5.FileTilte AS indexImg,nc.NewsContent,nc.NewsHit,nc.RleaseTime,sc.CodeName AS NewsStatus FROM dbo.News_Contents AS nc LEFT JOIN News_Menu AS nm ON nm.Id = nc.NewsMenuId LEFT JOIN dbo.News_UploadFile AS uf ON uf.Id=nc.AttachId LEFT JOIN dbo.News_UploadFile AS uf1 ON uf1.Id=AttachContent1 LEFT JOIN dbo.News_UploadFile AS uf2 ON uf2.Id=nc.AttachContent2 LEFT JOIN dbo.News_UploadFile AS uf3 ON uf3.Id=nc.AttachContent3 LEFT JOIN dbo.News_UploadFile AS uf4 ON uf4.Id=nc.AttachContent4 LEFT JOIN dbo.News_UploadFile AS uf5 ON uf5.Id=nc.IndexImg LEFT JOIN dbo.System_Code AS sc ON sc.Id=nc.NewsStatus where nc.NewsMenuId in ({0}) ", newsMenuId);
+                if (!string.IsNullOrWhiteSpace(newsStatus))
+                {
+                    sql.Append(" and nc.NewsStatus = @NewsStatus");
+                    parameters.Add(new SqlParameter("@NewsStatus", newsStatus));
+                }
+                sql.Append(" ORDER BY nc.RleaseTime DESC");
+                dt = DbHelper.GetDataTable(sql.ToString(), parameters.ToArray());
+            }
+            catch (Exception exception)
+            {
+                Log4Dao.InsertLog4(exception.Message);
+            }
+            return dt;
+        }
+
+        /// <summary>
+        ///  查询首页图片,根据日期排序
+        /// </summary>
+        /// Author  : Napoleon
+        /// Created : 2015-08-13 14:08:00
+        public DataTable GetIndexImages(string newsStatus)
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                List<SqlParameter> parameters = new List<SqlParameter>();
+                StringBuilder sql = new StringBuilder();
+                sql.Append("select nc.Id,nc.NewsMenuId,nc.NewsTitle,nu.Id as indexId,nu.FileUrl as IndexUrl,nu.FileTilte as indexImg from News_Contents as nc LEFT JOIN News_UploadFile as nu on nu.Id=nc.IndexImg where LEN(nc.IndexImg)>0");
+                if (!string.IsNullOrWhiteSpace(newsStatus))
+                {
+                    sql.Append(" and nc.NewsStatus = @NewsStatus");
+                    parameters.Add(new SqlParameter("@NewsStatus", newsStatus));
+                }
+                sql.Append(" ORDER BY nc.RleaseTime DESC");
+                dt = DbHelper.GetDataTable(sql.ToString(), parameters.ToArray());
             }
             catch (Exception exception)
             {

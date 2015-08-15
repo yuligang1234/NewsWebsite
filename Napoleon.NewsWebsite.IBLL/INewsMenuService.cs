@@ -22,6 +22,13 @@ namespace Napoleon.NewsWebsite.IBLL
         DataTable GetNewsMenuParentTable(string isParent);
 
         /// <summary>
+        ///  查询是否有子菜单数据
+        /// </summary>
+        /// Author  :Napoleon
+        /// Created :2015-06-06 02:02:25
+        DataTable GetNewsMenuParentId(string parentId);
+
+        /// <summary>
         ///  查询数据
         /// </summary>
         /// Author  :Napoleon

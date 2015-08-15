@@ -231,7 +231,6 @@
     <Content Include="Content\Css\PublicCss\Button.css" />
     <Content Include="Content\Css\PublicCss\DataGrid.css" />
     <Content Include="Content\Css\PublicCss\TableEdit.css" />
-    <Content Include="Content\Css\PublicCss\Icons.css" />
     <Content Include="Content\easyui\easyloader.js" />
     <Content Include="Content\easyui\jquery.easyui.min.js" />
     <Content Include="Content\easyui\jquery.min.js" />
@@ -588,12 +587,16 @@
     <Content Include="Content\Js\Log\Index.js" />
     <Content Include="Content\Js\Menu\Index.js" />
     <Content Include="Content\Js\NavMenu\Index.js" />
-    <Content Include="Content\Js\PublicFunc\Easyui.js" />
-    <Content Include="Content\Js\PublicFunc\HttpJs.js" />
-    <Content Include="Content\Js\PublicFunc\Index.js" />
-    <Content Include="Content\Js\PublicFunc\RegJs.js" />
-    <Content Include="Content\Js\PublicFunc\UmEditor.js" />
-    <Content Include="Content\Js\PublicFunc\WebUploader.js" />
+    <Content Include="Content\Js\PublicJs\Base\Index.js" />
+    <Content Include="Content\Js\PublicJs\Base\StringFunc.js" />
+    <Content Include="Content\Js\PublicJs\Cryptography\md5.js" />
+    <Content Include="Content\Js\PublicJs\Event\KeyboardEvent.js" />
+    <Content Include="Content\Js\PublicJs\Format\SerializeFunc.js" />
+    <Content Include="Content\Js\PublicJs\Frame\Easyui.js" />
+    <Content Include="Content\Js\PublicJs\Http\UrlJs.js" />
+    <Content Include="Content\Js\PublicJs\Reg\RegJs.js" />
+    <Content Include="Content\Js\PublicJs\Frame\UmEditor.js" />
+    <Content Include="Content\Js\PublicJs\Frame\WebUploader.js" />
     <Content Include="Content\Js\sea-debug.js" />
     <Content Include="Content\Js\sea.js" />
     <Content Include="Content\umeditor\dialogs\emotion\emotion.css" />
@@ -706,6 +709,7 @@
     <Content Include="Content\umeditor\third-party\mathquill\font\Symbola.ttf" />
     <Content Include="Content\umeditor\third-party\mathquill\font\Symbola.woff" />
     <Content Include="Content\umeditor\umeditor.min.js.map" />
+    <None Include="Properties\PublishProfiles\新闻后台.pubxml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

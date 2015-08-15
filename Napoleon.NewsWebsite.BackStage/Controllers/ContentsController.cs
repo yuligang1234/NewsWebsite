@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Data;
-using System.Text.RegularExpressions;
 using System.Web.Mvc;
+using Napoleon.NewsWebsite.Common;
 using Napoleon.NewsWebsite.DAL;
 using Napoleon.NewsWebsite.IBLL;
 using Napoleon.NewsWebsite.Model;
@@ -11,7 +11,7 @@ using Napoleon.PublicCommon.Frame;
 
 namespace Napoleon.NewsWebsite.BackStage.Controllers
 {
-    public class ContentsController : Controller
+    public class ContentsController : BaseController
     {
 
         private INewsContentsService _newsContentsService;
@@ -60,7 +60,7 @@ namespace Napoleon.NewsWebsite.BackStage.Controllers
         [ValidateInput(false)]
         public ActionResult SaveAdd(string newsMenuId, string newsType, string newsTitle, string httpUrl, string attachId, string indexImg, string attachContent1, string attachContent2, string attachContent3, string attachContent4, string content)
         {
-            string result = "failue-保存失败!";
+            string status = "failue", msg = "保存失败!", json;
             try
             {
                 NewsContents contents = new NewsContents();
@@ -90,15 +90,17 @@ namespace Napoleon.NewsWebsite.BackStage.Controllers
                 int i = _newsContentsService.InsertNewsContents(contents);
                 if (i > 0)
                 {
-                    result = "success-保存成功!";
+                    status = "success";
+                    msg = "保存成功!";
                 }
             }
             catch (Exception exception)
             {
-                result = "error-保存出错!";
+                msg = "保存出错!";
                 Log4Dao.InsertLog4(exception.Message);
             }
-            return Content(result);
+            json = PublicFunc.ModelToJson(status, msg);
+            return Content(json);
         }
 
         #endregion
@@ -119,7 +121,7 @@ namespace Napoleon.NewsWebsite.BackStage.Controllers
         [ValidateInput(false)]
         public ActionResult UpdateEdit(string hiddenId, string newsMenuId, string newsType, string newsTitle, string httpUrl, string attachId, string indexImg, string attachContent1, string attachContent2, string attachContent3, string attachContent4, string content)
         {
-            string result = "failue-更新失败!";
+            string status = "failue", msg = "更新失败!", json;
             try
             {
                 NewsContents contents = new NewsContents();
@@ -147,15 +149,17 @@ namespace Napoleon.NewsWebsite.BackStage.Controllers
                 int i = _newsContentsService.UpdateNewsContents(contents);
                 if (i > 0)
                 {
-                    result = "success-更新成功!";
+                    status = "success";
+                    msg = "更新成功!";
                 }
             }
             catch (Exception exception)
             {
-                result = "error-更新出错!";
+                msg = "更新出错!";
                 Log4Dao.InsertLog4(exception.Message);
             }
-            return Content(result);
+            json = PublicFunc.ModelToJson(status, msg);
+            return Content(json);
         }
 
         #endregion
@@ -178,21 +182,23 @@ namespace Napoleon.NewsWebsite.BackStage.Controllers
         /// Created : 2015-06-24 15:59:36
         public ActionResult Delete(string ids)
         {
-            string result = "failue-删除失败!";
+            string status = "failue", msg = "删除失败!", json;
             try
             {
                 int i = _newsContentsService.DeleteNewsContents(ids);
                 if (i > 0)
                 {
-                    result = "success-删除成功!";
+                    status = "success";
+                    msg = "删除成功!";
                 }
             }
             catch (Exception exception)
             {
-                result = "error-删除出错!";
+                msg = "删除出错!";
                 Log4Dao.InsertLog4(exception.Message);
             }
-            return Content(result);
+            json = PublicFunc.ModelToJson(status, msg);
+            return Content(json);
         }
 
         /// <summary>
@@ -215,20 +221,22 @@ namespace Napoleon.NewsWebsite.BackStage.Controllers
         /// Created : 2015-06-25 11:13:01
         public ActionResult SureVerify(string ids, string verifyId)
         {
-            string result = "failue-确认失败!";
+            string status = "failue", msg = "确认失败!", json;
             try
             {
                 if (_newsContentsService.UpdateNewsVerify(ids, verifyId) > 0)
                 {
-                    result = "success-确认成功!";
+                    status = "success";
+                    msg = "确认成功!";
                 }
             }
             catch (Exception exception)
             {
-                result = "error-确认出错!";
+                msg = "确认出错!";
                 Log4Dao.InsertLog4(exception.Message);
             }
-            return Content(result);
+            json = PublicFunc.ModelToJson(status, msg);
+            return Content(json);
         }
 
     }

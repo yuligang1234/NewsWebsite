@@ -1,0 +1,20 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title></title>
+    <link href="../../Content/Css/Error/Index.css" rel="stylesheet" />
+    @RenderPage("~/Views/Shared/_Bootstrap.cshtml")
+</head>
+<body class="Body_Bg">
+    <div class="Main NoFound">
+        <p class="Title">非常抱歉，您要查看的页面没有办法找到</p>
+        <button id="BtnLogin" class="btn btn-primary" type="button" onclick="ReturnIndex()">返回首页</button>
+    </div>
+    <script type="text/javascript">
+        function ReturnIndex() {
+            top.window.location.href = "/Home/Index";
+        }
+    </script>
+</body>
+</html>

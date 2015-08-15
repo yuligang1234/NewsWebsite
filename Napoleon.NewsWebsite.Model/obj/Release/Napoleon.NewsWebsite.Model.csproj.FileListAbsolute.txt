@@ -1,0 +1,4 @@
+D:\Napoleon\GitHub\新闻网站\NewsWebsite\Napoleon.NewsWebsite.Model\bin\Release\Napoleon.NewsWebsite.Model.dll
+D:\Napoleon\GitHub\新闻网站\NewsWebsite\Napoleon.NewsWebsite.Model\bin\Release\Napoleon.NewsWebsite.Model.pdb
+D:\Napoleon\GitHub\新闻网站\NewsWebsite\Napoleon.NewsWebsite.Model\obj\Release\Napoleon.NewsWebsite.Model.dll
+D:\Napoleon\GitHub\新闻网站\NewsWebsite\Napoleon.NewsWebsite.Model\obj\Release\Napoleon.NewsWebsite.Model.pdb

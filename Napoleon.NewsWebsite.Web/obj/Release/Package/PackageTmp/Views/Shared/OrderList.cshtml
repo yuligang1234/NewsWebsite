@@ -1,0 +1,20 @@
+﻿@using System.Data;
+@model DataTable
+<link href="../../Content/Css/Controls/List.css" rel="stylesheet" />
+<ul class="discount" style='width: @ViewData["ulWidth"]px'>
+    @{
+        var i = 1;
+        var className = "orange_bg";
+        foreach (DataRow row in Model.Rows)
+        {
+            <li>
+                <i class='@if (i == 1 || i == 2 || i == 3){@className}'>@i
+                </i>
+                <a href='/Home/Contents?id=@row["Id"]' target="_blank" style='width: @ViewData["titleWidth"]px' title='@row["NewsTitle"]'>@row["NewsTitle"]</a>
+                <span>@row["RleaseTime"].ToString().AsDateTime().ToString("MM-dd")</span>
+            </li>
+    i++;
+        }
+    }
+</ul>
+

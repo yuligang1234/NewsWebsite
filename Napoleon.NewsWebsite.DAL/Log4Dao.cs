@@ -21,14 +21,20 @@ namespace Napoleon.NewsWebsite.DAL
         /// Created : 2015-06-05 09:47:20
         public static void InsertLog4(string msg, LogType logType = LogType.Error, InsertType insertType = InsertType.All)
         {
-            SystemLog log = new SystemLog();
-            log.IpAddress = IpFunc.GetIp();
-            log.OperateTime = DateTime.Now;
-            log.OperateUrl = HttpContext.Current.Request.Url.ToString();
-            log.UserName = "系统";
-            log.OperateType = "系统错误";
-            log.OperateContent = msg;
-            log.InsertLog(logType, insertType);
+            try
+            {
+                SystemLog log = new SystemLog();
+                log.IpAddress = IpFunc.GetIp();
+                log.OperateTime = DateTime.Now;
+                log.OperateUrl = HttpContext.Current.Request.Url.ToString();
+                log.UserName = "系统";
+                log.OperateType = "系统错误";
+                log.OperateContent = msg;
+                log.InsertLog(logType, insertType);
+            }
+            catch (Exception)
+            {
+            }
         }
 
     }

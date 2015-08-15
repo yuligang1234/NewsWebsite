@@ -1,0 +1,84 @@
+﻿@{
+    ViewBag.Title = "新闻首页";
+    Layout = "~/Views/Shared/Index.cshtml";
+}
+<link href="../../Content/Css/Home/Index.css" rel="stylesheet" />
+<!--滚动图片-->
+<div class="img">
+    @Html.Action("RollPic","Controls")
+</div>
+<!--安监要情-->
+<div class="box" style="float: right;">
+    <div class="head"><i><a href="/Home/List?id=4630ae6f1a201508071353211368204" target="_blank">更多&nbsp;＞</a></i>安监要情</div>
+    <div class="content" style="height: 240px;">
+        @Html.Action("SingleList","Controls",new { newsMenuId = "4630ae6f1a201508071353211368204",top = 8,width=450})
+    </div>
+</div>
+<div class="hotshop">
+    <!--新闻动态-->
+    <div class="fiery">
+        <!--头部-->
+        <div class="f_head">
+            <span>新&nbsp;闻&nbsp;动&nbsp;态</span>
+            <div class="leidh">
+                <div class="dh_left"></div>
+                <div class="dh_text">
+                </div>
+                <div class="dh_right"></div>
+            </div>
+            <div class="hotimg"></div>
+        </div>
+        <div class="tinybox" style="float: left;">
+            <div>事故快报</div>
+            @Html.Action("OrderList","Controls",new { newsMenuId = "a83ebe1278201508071407327281140",top = 10,width=250})
+        </div>
+        <!--安监局文件-->
+        <div class="box" style="float: left; margin-left: 16px;">
+            <div class="head"><i><a href="/Home/List?id=9360c9d2e5201508071357592930090" target="_blank">更多&nbsp;＞</a></i>安监局文件</div>
+            <div class="content" style="height: 300px;">
+                @Html.Action("SingleList","Controls",new { newsMenuId = "9360c9d2e5201508071357592930090",top = 7,width=450})
+            </div>
+        </div>
+        <!--行政法规-->
+        <div class="box" style="float: left; margin-left: 10px;">
+            <div class="head"><i><a href="/Home/List?id=beeb792297201508071347068177596" target="_blank">更多&nbsp;＞</a></i>行政法规</div>
+            <div class="content" style="height: 300px;">
+                @Html.Action("SingleList","Controls",new { newsMenuId = "beeb792297201508071347068177596",top = 7,width=450})
+            </div>
+        </div>
+    </div>
+</div>
+<div class="hotshop">
+    <!--办事大厅-->
+    <div class="fiery">
+        <!--头部-->
+        <div class="f_head">
+            <span>办&nbsp;事&nbsp;大&nbsp;厅</span>
+            <div class="leidh">
+                <div class="dh_left"></div>
+                <div class="dh_text">
+                </div>
+                <div class="dh_right"></div>
+            </div>
+            <div class="hotimg"></div>
+        </div>
+        <div class="tinybox" style="float: left;">
+            <div>各地动态</div>
+            @Html.Action("OrderList","Controls",new { newsMenuId = "6cd5dc35b5201508071354097920090",top = 7,width=250})
+        </div>
+        <!--隐患治理督办-->
+        <div class="box" style="float: left; margin-left: 16px;">
+            <div class="head"><i><a href="/Home/List?id=43da51c159201508071409499179522" target="_blank">更多&nbsp;＞</a></i>隐患治理督办</div>
+            <div class="content" style="height: 300px;">
+                @Html.Action("SingleList","Controls",new { newsMenuId = "43da51c159201508071409499179522",top = 7,width=450})
+            </div>
+        </div>
+        <!--事故案例-->
+        <div class="box" style="float: left; margin-left: 10px;">
+            <div class="head"><i><a href="/Home/List?id=ea3c9289a2201508071408280261358" target="_blank">更多&nbsp;＞</a></i>事故案例</div>
+            <div class="content" style="height: 300px;">
+                @Html.Action("SingleList","Controls",new { newsMenuId = "ea3c9289a2201508071408280261358",top = 7,width=450})
+            </div>
+        </div>
+    </div>
+</div>

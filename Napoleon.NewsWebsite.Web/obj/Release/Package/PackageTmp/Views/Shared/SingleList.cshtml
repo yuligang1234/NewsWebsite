@@ -1,0 +1,17 @@
+﻿@using System.Data;
+@model DataTable
+<link href="../../Content/Css/Controls/List.css" rel="stylesheet" />
+<div class="text">
+    <ul style='width: @ViewData["ulWidth"]px'>
+        @{
+            foreach (DataRow row in Model.Rows)
+            {
+                <li style='width: @ViewData["ulWidth"]px'>
+                    <span>@row["RleaseTime"].ToString().AsDateTime().ToString("MM-dd")</span>
+                    <a href='/Home/List?id=@row["NewsMenuId"]' target="_blank" class="subclass" title='[@row["MenuName"]]'>[@row["MenuName"]]</a>
+                    <a href='/Home/Contents?id=@row["Id"]' target="_blank" style='width: @ViewData["titleWidth"]px' class="title" title='@row["NewsTitle"]'>@row["NewsTitle"]</a>
+                </li>
+        }
+        }
+    </ul>
+</div>

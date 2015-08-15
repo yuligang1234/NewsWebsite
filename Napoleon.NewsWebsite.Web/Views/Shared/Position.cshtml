@@ -1,0 +1,24 @@
+﻿<div class="mapPath">
+    当前位置：
+    <a href="/">首页</a>
+    @Html.Raw(@ViewData["position"])
+</div>
+<style type="text/css">
+    .mapPath {
+        background: #eeeeee;
+        height: 30px;
+        line-height: 30px;
+        font-size: 14px;
+        color: #666666;
+        padding-left: 20px;
+    }
+
+        .mapPath a {
+            color: #666666;
+            text-decoration: none;
+        }
+
+            .mapPath a:hover {
+                color: #F90;
+            }
+</style>

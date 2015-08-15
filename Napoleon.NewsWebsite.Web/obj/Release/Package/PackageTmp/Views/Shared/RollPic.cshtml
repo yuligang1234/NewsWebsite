@@ -1,0 +1,27 @@
+﻿@using System.Data
+@model DataTable
+<link href="../../Content/Css/Controls/RollPic.css" rel="stylesheet" />
+<div class="imgbox">
+    <div class="showimg" id="showimg">
+        <!--图片轮播-->
+        <ul>
+            @{
+                foreach (DataRow row in Model.Rows)
+                {
+                    <li>
+                        <a href='/Home/Contents?id=@row["Id"]' target="_blank">
+                            <img src='@ViewData["NewsOa"]@row["IndexUrl"]' alt='@row["NewsTitle"]' />
+                        </a>
+                    </li>
+            }
+            }
+        </ul>
+    </div>
+</div>
+<script type="text/javascript">
+    seajs.use(["Controls/RollPic"], function (pic) {
+        $(function () {
+            pic.ShowIndexPic();
+        });
+    });
+</script>

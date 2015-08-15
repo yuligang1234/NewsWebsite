@@ -1,0 +1,11 @@
+﻿@{
+    ViewBag.Title = "新闻列表";
+    Layout = "~/Views/Shared/Index.cshtml";
+}
+
+<!--当前所在位置-->
+@Html.Action("Position", "Controls", new { id=@ViewData["Id"] })   
+<!--左边菜单列表-->
+@Html.Action("Menu", "Controls", new { id=@ViewData["Id"] })  
+<!--右边内容列表-->
+@Html.Action("ContentList","Controls",new { id=@ViewData["Id"] })

@@ -1,0 +1,68 @@
+﻿
+/*#region 滚动新闻*/
+
+.imgbox .showimg {
+    height: 275px;
+    width: 720px;
+    position: relative;
+    overflow: hidden;
+    display: block;
+}
+
+.showimg ul {
+    overflow: hidden;
+    position: absolute;
+}
+
+.showimg li {
+    height: 275px;
+    width: 720px;
+    overflow: hidden;
+    background-color: #f60;
+    position: relative;
+    float: left;
+    display: inline;
+}
+
+    .showimg li img {
+        width: 720px;
+    }
+
+#showimg .button_bg {
+    background-color: #000;
+    height: 30px;
+    width: 720px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+#showimg .button {
+    width: 720px;
+    position: absolute;
+    height: 22px;
+    bottom: 3px;
+    text-align: right;
+}
+
+    #showimg .button span {
+        font-family: "微软雅黑", Arial, "宋体";
+        font-size: 13px;
+        color: #fff;
+        text-align: center;
+        margin-right: 10px;
+        cursor: pointer;
+        background-color: #000;
+        filter: alpha(opacity=60);
+        opacity: 0.6;
+        line-height: 20px;
+        padding: 2px 7px;
+    }
+
+        #showimg .button span.on {
+            background-color: #19aabf;
+            filter: alpha(opacity=100);
+            opacity: 1;
+        }
+
+/*#endregion*/

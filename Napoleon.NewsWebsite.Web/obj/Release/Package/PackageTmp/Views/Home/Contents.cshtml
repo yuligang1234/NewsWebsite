@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "新闻详情";
+    Layout = "~/Views/Shared/Index.cshtml";
+}
+<link href="../../Content/Css/Home/Contents.css" rel="stylesheet" />
+<!--当前位置-->
+@Html.Action("Position", "Controls", new { id=@ViewData["NewsMenuId"] })  
+<!--内容详情-->
+<div class="details">
+    <div class="detailsTitle">
+        @Html.Raw(@ViewData["NewsTitles"])
+    </div>
+    <div class="detailsBody">
+        @Html.Raw(@ViewData["NewsContent"])
+        @{
+            if (!string.IsNullOrWhiteSpace(@ViewData["Attachs"].ToString()))
+            {
+                <p>
+                    附件：
+                </p>
+                <ul>
+                    @Html.Raw(@ViewData["Attachs"])
+                </ul>
+            }
+        }
+        <p></p>
+    </div>
+</div>

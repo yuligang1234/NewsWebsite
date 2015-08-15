@@ -12,6 +12,7 @@ namespace Napoleon.NewsWebsite.BackStage
     // 请访问 http://go.microsoft.com/?LinkId=9394801
     public class MvcApplication : HttpApplication
     {
+
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();

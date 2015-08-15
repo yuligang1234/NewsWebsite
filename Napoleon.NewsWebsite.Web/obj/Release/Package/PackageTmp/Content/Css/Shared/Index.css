@@ -1,0 +1,129 @@
+﻿
+body {
+    margin: 0 auto;
+    padding: 0;
+    width: 1200px;
+    font-family: "微软雅黑", "Arial, Helvetica","sans-serif","Arial Unicode MS";
+    font-size: 13px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    border: 0;
+}
+
+.top .main .bottom {
+    float: left;
+}
+
+.main .bottom {
+    width: 1200px;
+}
+
+.bottom table {
+    width: 1200px;
+    border: 0;
+}
+
+    .bottom table hr {
+        width: 100%;
+        size: 1px;
+        color: #aaa;
+    }
+
+    .bottom table td {
+        text-align: center;
+    }
+
+    .bottom table img {
+        width: 100px;
+        height: 100px;
+    }
+
+ul {
+    list-style-type: none;
+}
+
+.topImg {
+    height: 157px;
+    background-image: url('http://7xkx6x.com1.z0.glb.clouddn.com/banner.jpg');
+}
+
+.dhbox {
+    height: 42px;
+    background-image: url('http://7xkx6x.com1.z0.glb.clouddn.com/img.png');
+    background-repeat: repeat-x;
+    background-position: left -158px;
+}
+
+.topnav {
+    margin-left: 100px;
+    height: 42px;
+}
+
+    .topnav .tel {
+        border-radius: 3px;
+        -moz-border-radius: 3px;
+        -webkit-border-radius: 3px;
+        float: right;
+        height: 28px;
+        display: block;
+        border-color: #ff7300;
+        background-color: #fff;
+        margin-top: 6px;
+        background-position: -196px -712px;
+        background-image: url('http://7xkx6x.com1.z0.glb.clouddn.com/img.png');
+        background-repeat: no-repeat;
+        line-height: 28px;
+        padding-left: 26px;
+        color: #8c8c8c;
+    }
+
+    .topnav .hotnav {
+        float: left;
+        height: 42px;
+    }
+
+.hotnav ul {
+    margin: auto;
+    overflow: auto;
+    zoom: 1;
+}
+
+.hotnav li {
+    float: left;
+    line-height: 42px;
+    height: 42px;
+    background-image: url(../../Image/nav_line.png);
+    background-repeat: no-repeat;
+    background-position: right center;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.hotnav a {
+    padding-right: 15px;
+    padding-left: 15px;
+    font-size: 16px;
+    color: #fff;
+    display: block;
+    font-family: "微软雅黑";
+    text-decoration: none;
+}
+
+    .hotnav a.hoverbg {
+        background-image: url('http://7xkx6x.com1.z0.glb.clouddn.com/img.png');
+        background-repeat: repeat-x;
+        background-position: left -210px;
+        font-weight: bold;
+        color: #f60;
+    }
+
+    .hotnav a:hover {
+        color: #f60;
+        background-image: url('http://7xkx6x.com1.z0.glb.clouddn.com/img.png');
+        background-repeat: repeat-x;
+        background-position: left -210px;
+    }

@@ -2,6 +2,7 @@ D:\Napoleon\GitHub\新闻网站\NewsWebsite\Napoleon.NewsWebsite.IDAL\bin\Debug\
 D:\Napoleon\GitHub\新闻网站\NewsWebsite\Napoleon.NewsWebsite.IDAL\bin\Debug\Napoleon.NewsWebsite.IDAL.pdb
 D:\Napoleon\GitHub\新闻网站\NewsWebsite\Napoleon.NewsWebsite.IDAL\bin\Debug\Napoleon.NewsWebsite.Common.dll
 D:\Napoleon\GitHub\新闻网站\NewsWebsite\Napoleon.NewsWebsite.IDAL\bin\Debug\Napoleon.NewsWebsite.Model.dll
+D:\Napoleon\GitHub\新闻网站\NewsWebsite\Napoleon.NewsWebsite.IDAL\bin\Debug\Newtonsoft.Json.dll
 D:\Napoleon\GitHub\新闻网站\NewsWebsite\Napoleon.NewsWebsite.IDAL\bin\Debug\Napoleon.PublicCommon.dll
 D:\Napoleon\GitHub\新闻网站\NewsWebsite\Napoleon.NewsWebsite.IDAL\bin\Debug\NPOI.dll
 D:\Napoleon\GitHub\新闻网站\NewsWebsite\Napoleon.NewsWebsite.IDAL\bin\Debug\ICSharpCode.SharpZipLib.dll

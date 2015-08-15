@@ -36,7 +36,7 @@ namespace Napoleon.NewsWebsite.DAL
                         break;
                     case "1":
                         parentId = "0";
-                        sql.Append(" and nm.ParentId!=@ParentId");
+                        sql.Append(" and nm.ParentId!=@ParentId and nm.IsParent!='2015005'");//二级父节点也去掉
                         break;
                 }
                 sql.Append(" ORDER BY nm.OrderBy");
@@ -116,15 +116,19 @@ namespace Napoleon.NewsWebsite.DAL
             {
                 StringBuilder sb = new StringBuilder();
                 sb.AppendFormat("select Id,ParentId,MenuName,IsParent,IsUse,OperationTime,OrderBy from News_Menu");
-                dt = DbHelper.GetDataTable(sb.ToString());
                 if (!string.IsNullOrWhiteSpace(id))
                 {
-                    sb.AppendFormat(" where Id=@id");
+                    sb.AppendFormat(" where Id=@id Order by OrderBy");
                     SqlParameter[] parameters = 
                     {
                         new SqlParameter("@id",id)
                     };
                     dt = DbHelper.GetDataTable(sb.ToString(), parameters);
+                }
+                else
+                {
+                    sb.AppendFormat(" Order by OrderBy");
+                    dt = DbHelper.GetDataTable(sb.ToString());
                 }
             }
             catch (Exception exception)

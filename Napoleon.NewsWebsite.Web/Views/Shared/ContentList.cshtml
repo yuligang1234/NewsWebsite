@@ -1,0 +1,21 @@
+﻿<link href="../../Content/Css/Controls/ContentList.css" rel="stylesheet" />
+<div class="content">
+    <div class="contentTop">
+        <span>@ViewData["MenuName"]</span>
+        <img src="~/Content/Image/Controls/ico25.jpg">
+    </div>
+    <div class="listBox icons">
+        <ul id="content"></ul>
+    </div>
+
+    <div style="float: right;">
+        <ul class="pagination" id="paging"></ul>
+    </div>
+</div>
+<script type="text/javascript">
+    seajs.use("Controls/ContentList", function (contentList) {
+        $(function () {
+            contentList.LoadList('@ViewData["Id"]');
+        });
+    });
+</script>

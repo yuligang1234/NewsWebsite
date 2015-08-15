@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Web;
 using System.Web.Mvc;
 using Napoleon.Log4Module.Log;
 using Napoleon.Log4Module.Log.Common;
@@ -29,7 +28,7 @@ namespace Napoleon.NewsWebsite.BackStage.Controllers
         protected override void OnActionExecuting(ActionExecutingContext filterContext)
         {
             //禁止页面被缓存
-            Response.Cache.SetCacheability(HttpCacheability.NoCache);
+            //Response.Cache.SetCacheability(HttpCacheability.NoCache);
             if (!IsLogin)
             {
                 filterContext.Result = RedirectToRoute("Default", new { Controller = "Error", Action = "Message" });

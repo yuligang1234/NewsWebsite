@@ -1,16 +1,17 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 using System.Data.SqlTypes;
 using System.IO;
 using System.Web.Mvc;
 using Napoleon.Log4Module.Log.DAL;
 using Napoleon.Log4Module.Log.Model;
-using Napoleon.NewsWebsite.Common;
+using Napoleon.PublicCommon.File;
 using Napoleon.PublicCommon.Frame;
 using Napoleon.PublicCommon.Office;
 
 namespace Napoleon.NewsWebsite.BackStage.Controllers
 {
-    public class LogController : Controller
+    public class LogController : BaseController
     {
 
 
@@ -23,12 +24,6 @@ namespace Napoleon.NewsWebsite.BackStage.Controllers
         /// <summary>
         ///  加载表格
         /// </summary>
-        /// <param name="userName">Name of the user.</param>
-        /// <param name="content">The content.</param>
-        /// <param name="datetime1">The datetime1.</param>
-        /// <param name="datetime2">The datetime2.</param>
-        /// <param name="rows">The rows.</param>
-        /// <param name="page">The page.</param>
         /// Author  : Napoleon
         /// Created : 2015-01-17 11:00:34
         public ActionResult LoadDataGrid(string userName, string content, string datetime1, string datetime2, int rows, int page)
@@ -47,13 +42,16 @@ namespace Napoleon.NewsWebsite.BackStage.Controllers
         /// <summary>
         ///  导出Excel
         /// </summary>
-        /// <param name="content">The content.</param>
-        /// <param name="datetime1">The datetime1.</param>
-        /// <param name="datetime2">The datetime2.</param>
         /// Author  : Napoleon
         /// Created : 2015-01-14 14:15:33
-        public FileResult ExcelLog(string content, string datetime1, string datetime2)
+        public ActionResult ExcelLog(string content, string datetime1, string datetime2)
         {
+            string fileName = "系统日志" + DateTime.Now.ToString("yyyyMMddhhmmssff") + ".xls";
+            string filePath = Server.MapPath("../Export/");
+            if (!Directory.Exists(filePath))
+            {
+                Directory.CreateDirectory(filePath);
+            }
             SystemLog log = new SystemLog();
             log.OperateContent = content;
             datetime1 = string.IsNullOrWhiteSpace(datetime1) ? SqlDateTime.MinValue.ToString() : datetime1;
@@ -63,13 +61,13 @@ namespace Napoleon.NewsWebsite.BackStage.Controllers
             string[] columns = { "Id", "IpAddress", "OperateUrl", "OperateContent", "OperateTime", "OperateType" };
             MemoryStream fileStream = dt.CreateSheet(titles, columns);
             fileStream.Seek(0, SeekOrigin.Begin);
-            return File(fileStream, "application/vnd.ms-excel", "系统日志" + PublicFields.LogExcelName);
+            fileStream.StreamToFile(filePath + fileName);
+            return Content("../Export/" + fileName);
         }
 
         /// <summary>
         ///  日志详情
         /// </summary>
-        /// <param name="id">The identifier.</param>
         /// Author  : Napoleon
         /// Created : 2015-06-10 15:40:30
         public ActionResult ViewInfo(string id)

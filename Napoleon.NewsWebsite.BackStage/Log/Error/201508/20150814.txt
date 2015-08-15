@@ -1,0 +1,28 @@
+操作用户: 系统
+用户IP: ::1
+操作时间: 2015/8/14 8:49:16
+操作类型: 系统错误
+操作地址: http://localhost:7139/Ajax/LoadParentId
+操作内容: 引发类型为“System.Exception”的异常。
+____________________________________________________________________
+操作用户: 系统
+用户IP: ::1
+操作时间: 2015/8/14 8:51:00
+操作类型: 系统错误
+操作地址: http://localhost:7139/NavMenu/LoadNavMenuGrids
+操作内容: 在控制器“Napoleon.NewsWebsite.BackStage.Controllers.NavMenuController”上未找到公共操作方法“LoadNavMenuGrids”。
+____________________________________________________________________
+操作用户: 系统
+用户IP: ::1
+操作时间: 2015/8/14 8:51:53
+操作类型: 系统错误
+操作地址: http://localhost:7139/NavMenu/LoadNavMenuGrids
+操作内容: 在控制器“Napoleon.NewsWebsite.BackStage.Controllers.NavMenuController”上未找到公共操作方法“LoadNavMenuGrids”。
+____________________________________________________________________
+操作用户: 系统
+用户IP: ::1
+操作时间: 2015/8/14 8:54:10
+操作类型: 系统错误
+操作地址: http://localhost:7139/NavMenu/LoadNavMenuGrids
+操作内容: 在控制器“Napoleon.NewsWebsite.BackStage.Controllers.NavMenuController”上未找到公共操作方法“LoadNavMenuGrids”。
+____________________________________________________________________

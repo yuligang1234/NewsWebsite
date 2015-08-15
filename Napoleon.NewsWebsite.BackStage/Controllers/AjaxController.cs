@@ -147,11 +147,23 @@ namespace Napoleon.NewsWebsite.BackStage.Controllers
         }
 
         /// <summary>
-        ///  新闻类型(内容/链接/附件)
+        ///  新闻类型(内容/链接/附件)--查询使用
         /// </summary>
         /// Author  : Napoleon
         /// Created : 2015-06-09 14:22:54
         public ActionResult LoadNewsType()
+        {
+            DataTable dt = _systemCode.GetSystemCodeTable(PublicFields.NewsType);
+            string json = dt.ConvertToComboboxJson("Id", "CodeName", defaultId: "", defaultText: "无");
+            return Content(json);
+        }
+
+        /// <summary>
+        ///  新闻类型(内容/链接/附件)--新建编辑使用
+        /// </summary>
+        /// Author  : Napoleon
+        /// Created : 2015-06-09 14:22:54
+        public ActionResult LoadNewsTypes()
         {
             DataTable dt = _systemCode.GetSystemCodeTable(PublicFields.NewsType);
             string json = dt.ConvertToComboboxJson("Id", "CodeName");
@@ -166,7 +178,7 @@ namespace Napoleon.NewsWebsite.BackStage.Controllers
         public ActionResult LoadMenuList()
         {
             DataTable dt = _newsMenu.GetNewsMenuGrid(PublicFields.Use);
-            string json = dt.ConvertToComboboxJson("Id", "MenuName");
+            string json = dt.ConvertToComboboxJson("Id", "MenuName", defaultId: "", defaultText: "无");
             return Content(json);
         }
 

@@ -1,0 +1,144 @@
+﻿
+/*#region 列表样式*/
+
+.img {
+    float: left;
+    width: 720px;
+}
+
+.box {
+    width: 460px;
+}
+
+.head {
+    line-height: 30px;
+    height: 30px;
+    width: 460px;
+    padding-right: 10px;
+    padding-left: 20px;
+    border: 1px solid #d7d7d7;
+    background-color: #f5f5f5;
+    font-size: 14px;
+    color: #ff7300;
+    background-image: url('http://7xkx6x.com1.z0.glb.clouddn.com/img.png');
+    background-repeat: no-repeat;
+    background-position: -194px -648px;
+}
+
+    .head i {
+        font-size: 12px;
+        font-style: normal;
+        float: right;
+        font-weight: normal;
+    }
+
+    .head span {
+        color: #c8c8c8;
+        padding-right: 5px;
+        padding-left: 5px;
+    }
+
+    .head a {
+        color: #6e6e6e;
+        cursor: pointer;
+        text-decoration: none;
+    }
+
+        .head a:hover {
+            color: #ff5a00;
+        }
+
+.content {
+    border-right: 1px solid #d2d2d2;
+    border-left: 1px solid #d2d2d2;
+    border-bottom: 1px solid #d2d2d2;
+    background-color: #fff;
+}
+
+.tinybox div {
+    background-color: #f5f5f5;
+    height: 33px;
+    border: 1px solid #d2d2d2;
+    font-size: 14px;
+    line-height: 33px;
+    color: #464646;
+    padding-left: 10px;
+    font-weight: normal;
+}
+
+/*#endregion*/
+
+/*#region 横幅*/
+.hotshop {
+    width: 1200px;
+    padding-top: 13px;
+    overflow: hidden;
+}
+
+    .hotshop .fiery {
+        width: 1198px;
+        border: 1px solid #e5e5e5;
+        background-color: #fcfcfc;
+    }
+
+.fiery .f_head {
+    height: 39px;
+    width: 1198px;
+    position: relative;
+}
+
+.f_head .leidh {
+    height: 38px;
+    width: 980px;
+    float: right;
+    position: absolute;
+    top: -4px;
+    right: 0;
+}
+
+.f_head span {
+    float: left;
+    margin-left: 50px;
+    font-size: 18px;
+    line-height: 36px;
+}
+
+.leidh .dh_left, .leidh .dh_right {
+    width: 30px;
+    height: 38px;
+    background-image: url('http://7xkx6x.com1.z0.glb.clouddn.com/img.png');
+    background-repeat: no-repeat;
+    float: left;
+    display: block;
+}
+
+.leidh .dh_left {
+    background-position: -154px -580px;
+}
+
+.leidh .dh_right {
+    background-position: -198px -580px;
+}
+
+.leidh .dh_text {
+    float: left;
+    background-image: url('http://7xkx6x.com1.z0.glb.clouddn.com/img.png');
+    background-repeat: repeat-x;
+    background-position: left -450px;
+    height: 38px;
+    width: 920px;
+    display: block;
+}
+
+.f_head .hotimg {
+    background-image: url('http://7xkx6x.com1.z0.glb.clouddn.com/img.png');
+    background-repeat: no-repeat;
+    background-position: -152px -620px;
+    display: block;
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    left: -1px;
+    top: -1px;
+}
+/*#endregion*/

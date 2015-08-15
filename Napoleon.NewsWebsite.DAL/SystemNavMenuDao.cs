@@ -25,14 +25,18 @@ namespace Napoleon.NewsWebsite.DAL
             {
                 List<SqlParameter> parameters = new List<SqlParameter>();
                 StringBuilder sb = new StringBuilder();
-                sb.AppendFormat("select sn.Id,sn.MenuName,sc2.CodeName AS MenuType,sc.MenuName as MenuId,sn.MenuUrl,sc1.CodeName as IsUse,sn.OperationTime,sn.OrderBy from System_NavMenu AS sn LEFT JOIN dbo.News_Menu AS sc ON sc.Id=sn.MenuId LEFT JOIN dbo.System_Code AS sc1 ON sc1.Id=sn.IsUse LEFT JOIN dbo.System_Code AS sc2 ON sc2.Id=sn.MenuType where 1=1");
+                sb.AppendFormat("select sn.Id,sn.MenuName,sc2.CodeName AS MenuType, MenuId,sn.MenuUrl,sc1.CodeName as IsUse,sn.OperationTime,sn.OrderBy from System_NavMenu AS sn LEFT JOIN dbo.News_Menu AS sc ON sc.Id=sn.MenuId LEFT JOIN dbo.System_Code AS sc1 ON sc1.Id=sn.IsUse LEFT JOIN dbo.System_Code AS sc2 ON sc2.Id=sn.MenuType where 1=1");
                 if (!string.IsNullOrWhiteSpace(id))
                 {
                     sb.AppendFormat(" and sn.Id=@id");
                     parameters.Add(new SqlParameter("@id", id));
                 }
-                sb.AppendFormat(" and sn.IsUse=@isused");
-                parameters.Add(new SqlParameter("isused", isUsed));
+                if (!string.IsNullOrWhiteSpace(isUsed))
+                {
+                    sb.AppendFormat(" and sn.IsUse=@isused ");
+                    parameters.Add(new SqlParameter("isused", isUsed));
+                }
+                sb.AppendFormat(" order by sn.OrderBy");
                 dt = DbHelper.GetDataTable(sb.ToString(), parameters.ToArray());
             }
             catch (Exception exception)

@@ -1,7 +1,6 @@
 ﻿using System.Web.Mvc;
 using Napoleon.NewsWebsite.BackStage.UserModule;
 using Napoleon.NewsWebsite.Common;
-using Napoleon.PublicCommon.Cryptography;
 using Napoleon.PublicCommon.Http;
 
 namespace Napoleon.NewsWebsite.BackStage.Controllers
@@ -37,21 +36,20 @@ namespace Napoleon.NewsWebsite.BackStage.Controllers
         /// Created : 2015-01-17 13:30:42
         public ActionResult SaveUser(string id, string password, string newPw)
         {
-            int count = _userModule.ChangePwXml(id, password.EncrypteRc2(PublicFields.Rc2Key), newPw.EncrypteRc2(PublicFields.Rc2Key));
-            string result;
+            int count = _userModule.ChangePwXml(id, password, newPw);
+            string status = "failue", msg = "修改失败!", json;
             switch (count)
             {
                 case -1:
-                    result = "failue-修改失败，请输入正确的原密码！";
+                    msg = "修改失败，请输入正确的原密码！";
                     break;
                 case 1:
-                    result = "success-修改成功,请重新登陆系统";
-                    break;
-                default:
-                    result = "failue-修改失败！";
+                    status = "success";
+                    msg = "修改成功,请重新登陆系统";
                     break;
             }
-            return Content(result);
+            json = PublicFunc.ModelToJson(status, msg);
+            return Content(json);
         }
 
 

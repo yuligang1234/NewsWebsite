@@ -1,0 +1,85 @@
+﻿.content {
+    float: left;
+    margin-left: 12px;
+    margin-top: 10px;
+    width: 920px;
+}
+
+.contentTop {
+    border-bottom: #eeeeee 1px solid;
+    line-height: 33px;
+    _height: 33px;
+    color: #007de7;
+    font-size: 18px;
+    display: block;
+    overflow: hidden;
+}
+
+    .contentTop span {
+        background: #eeeeee;
+        display: block;
+        float: left;
+        padding: 0 20px;
+    }
+
+    .contentTop * {
+        vertical-align: middle;
+    }
+
+    .contentTop img {
+        float: left;
+    }
+
+.icons li {
+    background: url('/Content/Image/Controls/ico21.jpg') no-repeat left;
+    padding: 0 0 0 25px;
+}
+
+.listBox {
+    width: 100%;
+}
+
+    .listBox ul {
+        padding: 0;
+    }
+
+    .listBox li {
+        line-height: 39px;
+        border-bottom: #dfdfdf dotted 2px;
+        overflow: hidden;
+    }
+
+        .listBox li span {
+            float: left;
+            width: 80%;
+            height: 39px;
+            overflow: hidden;
+        }
+
+            .listBox li span i {
+                float: left;
+                font-style: normal;
+                margin-right: 10px;
+                color: #007de7;
+            }
+
+            .listBox li span a {
+                float: left;
+                font-size: 14px;
+                color: #333333;
+                text-decoration: none;
+            }
+
+                .listBox li span a:hover {
+                    color: #F90;
+                }
+
+        .listBox li i {
+            float: right;
+            color: #999999;
+        }
+
+        .listBox li ii {
+            float: right;
+            color: #999999;
+        }
